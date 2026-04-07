@@ -666,6 +666,7 @@ nav li {
 .nav-link[data-task="13"] i { color: #3498db; }
 .nav-link[data-task="15"] i { color: #2ecc71; }
 .nav-link[data-task="18"] i { color: #9b59b6; }
+.nav-link[data-task="test"] i { color: #f39c12; }
 
 /* Фильтр заданий */
 .completion-filter {
@@ -2762,6 +2763,110 @@ footer p {
     background: #cbd5e1;
 }
 
+/* ============ СТИЛИ ДЛЯ ИТОГОВОГО ТЕСТА ============ */
+.test-container {
+    background: white;
+    border-radius: 12px;
+    padding: 2rem;
+    margin-top: 1rem;
+}
+
+.test-question {
+    margin-bottom: 2rem;
+}
+
+.test-question-text {
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    background: #f8f9fa;
+    border-radius: 8px;
+}
+
+.test-options {
+    list-style: none;
+    padding: 0;
+}
+
+.test-option {
+    margin-bottom: 0.8rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.test-option:hover {
+    background: #f0f0f0;
+}
+
+.test-option input[type="radio"] {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+}
+
+.test-option label {
+    cursor: pointer;
+    flex: 1;
+    font-size: 1rem;
+}
+
+.test-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 2rem;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.test-progress {
+    font-weight: 500;
+    color: #3498db;
+}
+
+.test-result {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 2rem;
+    border-radius: 12px;
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.test-result h3 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.test-result p {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+}
+
+.test-feedback {
+    margin-top: 1rem;
+    padding: 1rem;
+    background: #f0f9ff;
+    border-radius: 8px;
+    border-left: 4px solid #3498db;
+}
+
+.test-feedback.correct {
+    border-left-color: #27ae60;
+    background: #f0fff4;
+}
+
+.test-feedback.incorrect {
+    border-left-color: #e74c3c;
+    background: #fff5f5;
+}
+
 </style>
 </head>
 <body>
@@ -2846,6 +2951,10 @@ footer p {
                 <button class="admin-tab" data-tab="edit-theory">
                     <i class="fas fa-book"></i> Теория и алгоритмы
                 </button>
+                <!-- Новая вкладка для итогового теста -->
+                <button class="admin-tab" data-tab="edit-test">
+                    <i class="fas fa-clipboard-list"></i> Итоговый тест
+                </button>
             </div>
             
         
@@ -2905,6 +3014,19 @@ footer p {
                                 <button type="button" class="math-btn" data-insert="⁾">⁾</button>
                                 <button type="button" class="math-btn" data-insert="π">π</button>
                                 <button type="button" class="math-btn" data-insert="√">√</button>
+                                <button type="button" class="math-btn" data-insert="≥">≥</button>
+                                <button type="button" class="math-btn" data-insert="≤">≤</button>
+                                <button type="button" class="math-btn" data-insert="∞">∞</button>         
+                                <button type="button" class="math-btn" data-insert="₀">₀</button>
+                                <button type="button" class="math-btn" data-insert="₁">₁</button>
+                                <button type="button" class="math-btn" data-insert="₂">₂</button>
+                                <button type="button" class="math-btn" data-insert="₃">₃</button>
+                                <button type="button" class="math-btn" data-insert="₄">₄</button>
+                                <button type="button" class="math-btn" data-insert="₅">₅</button>
+                                <button type="button" class="math-btn" data-insert="₆">₆</button>
+                                <button type="button" class="math-btn" data-insert="₇">₇</button>
+                                <button type="button" class="math-btn" data-insert="₈">₈</button>
+                                <button type="button" class="math-btn" data-insert="₉">₉</button>
                                 <button type="button" class="math-btn" onclick="insertSinTemplate('textarea-id')">sin</button>
                                 <button type="button" class="math-btn" onclick="insertCosTemplate('textarea-id')">cos</button>
                                 <button type="button" class="math-btn" onclick="insertFractionTemplate('practice-question')">Дробь</button>
@@ -2947,6 +3069,19 @@ footer p {
                                 <button type="button" class="math-btn" data-insert="⁾">⁾</button>
                                 <button type="button" class="math-btn" data-insert="π">π</button>
                                 <button type="button" class="math-btn" data-insert="√">√</button>
+                                <button type="button" class="math-btn" data-insert="≥">≥</button>
+                                <button type="button" class="math-btn" data-insert="≤">≤</button>
+                                <button type="button" class="math-btn" data-insert="∞">∞</button>
+                                <button type="button" class="math-btn" data-insert="₀">₀</button>
+                                <button type="button" class="math-btn" data-insert="₁">₁</button>
+                                <button type="button" class="math-btn" data-insert="₂">₂</button>
+                                <button type="button" class="math-btn" data-insert="₃">₃</button>
+                                <button type="button" class="math-btn" data-insert="₄">₄</button>
+                                <button type="button" class="math-btn" data-insert="₅">₅</button>
+                                <button type="button" class="math-btn" data-insert="₆">₆</button>
+                                <button type="button" class="math-btn" data-insert="₇">₇</button>
+                                <button type="button" class="math-btn" data-insert="₈">₈</button>
+                                <button type="button" class="math-btn" data-insert="₉">₉</button>
                                 <button type="button" class="math-btn" onclick="insertSinTemplate('textarea-id')">sin</button>
                                 <button type="button" class="math-btn" onclick="insertCosTemplate('textarea-id')">cos</button>
                                 <button type="button" class="math-btn" onclick="insertFractionTemplate('practice-question')">Дробь</button>
@@ -3026,6 +3161,19 @@ footer p {
                                 <button type="button" class="math-btn" data-insert="⁾">⁾</button>
                                 <button type="button" class="math-btn" data-insert="π">π</button>
                                 <button type="button" class="math-btn" data-insert="√">√</button>
+                                <button type="button" class="math-btn" data-insert="≥">≥</button>
+                                <button type="button" class="math-btn" data-insert="≤">≤</button>
+                                <button type="button" class="math-btn" data-insert="∞">∞</button>
+                                <button type="button" class="math-btn" data-insert="₀">₀</button>
+                                <button type="button" class="math-btn" data-insert="₁">₁</button>
+                                <button type="button" class="math-btn" data-insert="₂">₂</button>
+                                <button type="button" class="math-btn" data-insert="₃">₃</button>
+                                <button type="button" class="math-btn" data-insert="₄">₄</button>
+                                <button type="button" class="math-btn" data-insert="₅">₅</button>
+                                <button type="button" class="math-btn" data-insert="₆">₆</button>
+                                <button type="button" class="math-btn" data-insert="₇">₇</button>
+                                <button type="button" class="math-btn" data-insert="₈">₈</button>
+                                <button type="button" class="math-btn" data-insert="₉">₉</button>
                                 <button type="button" class="math-btn" onclick="insertSinTemplate('textarea-id')">sin</button>
                                 <button type="button" class="math-btn" onclick="insertCosTemplate('textarea-id')">cos</button>
                                 <button type="button" class="math-btn" onclick="insertFractionTemplate('practice-question')">Дробь</button>
@@ -3068,6 +3216,9 @@ footer p {
                                 <button type="button" class="math-btn" data-insert="⁾">⁾</button>
                                 <button type="button" class="math-btn" data-insert="π">π</button>
                                 <button type="button" class="math-btn" data-insert="√">√</button>
+                                <button type="button" class="math-btn" data-insert="≥">≥</button>
+                                <button type="button" class="math-btn" data-insert="≤">≤</button>
+                                <button type="button" class="math-btn" data-insert="∞">∞</button>
                                 <button type="button" class="math-btn" onclick="insertSinTemplate('textarea-id')">sin</button>
                                 <button type="button" class="math-btn" onclick="insertCosTemplate('textarea-id')">cos</button>
                                 <button type="button" class="math-btn" onclick="insertFractionTemplate('practice-question')">Дробь</button>
@@ -3142,6 +3293,9 @@ footer p {
                                 <button type="button" class="math-btn" data-insert="⁾">⁾</button>
                                 <button type="button" class="math-btn" data-insert="π">π</button>
                                 <button type="button" class="math-btn" data-insert="√">√</button>
+                                <button type="button" class="math-btn" data-insert="≥">≥</button>
+                                <button type="button" class="math-btn" data-insert="≤">≤</button>
+                                <button type="button" class="math-btn" data-insert="∞">∞</button>
                                 <button type="button" class="math-btn" onclick="insertSinTemplate('textarea-id')">sin</button>
                                 <button type="button" class="math-btn" onclick="insertCosTemplate('textarea-id')">cos</button>
                                 <button type="button" class="math-btn" onclick="insertFractionTemplate('practice-question')">Дробь</button>
@@ -3161,16 +3315,49 @@ footer p {
                     </button>
                 </div>
             </div>
+
+            <!-- Новая вкладка для итогового теста -->
+            <div id="edit-test" class="admin-tab-content">
+                <div class="admin-section">
+                    <h3><i class="fas fa-plus-circle"></i> Добавить вопрос в итоговый тест</h3>
+                    <div class="form-group">
+                        <label>Текст вопроса:</label>
+                        <textarea id="test-question-text" class="form-control" rows="3" placeholder="Введите условие задачи..."></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Варианты ответов (через запятую):</label>
+                        <input type="text" id="test-options" class="form-control" placeholder="Вариант 1, Вариант 2, Вариант 3, Вариант 4">
+                    </div>
+                    <div class="form-group">
+                        <label>Правильный ответ (текст):</label>
+                        <input type="text" id="test-correct" class="form-control" placeholder="Например: Вариант 1">
+                    </div>
+                    <div class="form-group">
+                        <label>Решение/Пояснение:</label>
+                        <textarea id="test-explanation" class="form-control" rows="4" placeholder="Подробное решение..."></textarea>
+                    </div>
+                    <button id="add-test-question-btn" class="btn btn-primary">
+                        <i class="fas fa-save"></i> Добавить вопрос
+                    </button>
+                </div>
+                
+                <div class="admin-section">
+                    <h3><i class="fas fa-list"></i> Вопросы теста</h3>
+                    <div id="test-questions-list" class="admin-list">
+                        <!-- Список вопросов будет загружен через JS -->
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-    <!-- Панель с Rutube после навигации -->
-<div id="rutube-panel">
-    <a href="https://rutube.ru/channel/75130349/videos/" target="_blank" class="rutube-link">
-        <i class="fas fa-video"></i> 
-        <span>Перейти на мой канал на Rutube</span>
-    </a>
-</div>
 
+    <!-- Панель с Rutube после навигации -->
+    <div id="rutube-panel">
+        <a href="https://rutube.ru/channel/75130349/videos/" target="_blank" class="rutube-link">
+            <i class="fas fa-video"></i> 
+            <span>Перейти на мой канал на Rutube</span>
+        </a>
+    </div>
 
     <header>
         <div class="header-content">
@@ -3191,7 +3378,7 @@ footer p {
                     </button>
                 </div>
             </div>
-            <p><i class="fas fa-graduation-cap"></i> Профильный уровень • Задания 13, 15, 18</p>
+            <p><i class="fas fa-graduation-cap"></i> Профильный уровень • Задания 13, 15, 18 + Итоговый тест</p>
             
             <!-- Блок рейтинга -->
             <div id="rating-section" class="rating-section hidden">
@@ -3257,6 +3444,12 @@ footer p {
             <li>
                 <a href="javascript:void(0)" class="nav-link" data-task="18">
                     <i class="fas fa-sliders-h"></i> Задание 18 (Параметры)
+                </a>
+            </li>
+            <!-- Новая ссылка на итоговый тест -->
+            <li>
+                <a href="javascript:void(0)" class="nav-link" data-task="test">
+                    <i class="fas fa-clipboard-list"></i> Итоговый тест
                 </a>
             </li>
         </ul>
@@ -3431,15 +3624,15 @@ footer p {
 
                                         <!-- Параметр a (слайдер + число) от -10 до 10 -->
                                         <div style="display: flex; flex-direction: column; gap: 4px; min-width: 160px;">
-    <label style="font-size: 0.85rem; font-weight: 600; color: #334155;">⚙️ Параметр a (от –10 до 10)</label>
-    <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
-        <input type="range" id="coord_aSlider" min="-10" max="10" step="0.01" value="4" style="flex: 1; height: 6px; border-radius: 10px; background: #cbd5e1;">
-        <div style="display: flex; gap: 5px; align-items: center;">
-            <input type="number" id="coord_aInput" value="4" step="0.01" min="-10" max="10" style="width: 80px; background: white; border: 1px solid #cbd5e1; border-radius: 40px; padding: 8px 12px; font-size: 0.9rem; outline: none; text-align: center;">
-            <span id="coord_aValue" style="background: #1e293b; color: white; padding: 4px 12px; border-radius: 40px; font-size: 0.9rem; font-weight: 600; min-width: 60px; text-align: center;">4.00</span>
-        </div>
-    </div>
-</div>
+                                            <label style="font-size: 0.85rem; font-weight: 600; color: #334155;">⚙️ Параметр a (от –100 до 100)</label>
+                                            <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
+                                                <input type="range" id="coord_aSlider" min="-100" max="100" step="0.1" value="4" style="flex: 1; height: 6px; border-radius: 10px; background: #cbd5e1;">
+                                                <div style="display: flex; gap: 5px; align-items: center;">
+                                                    <input type="number" id="coord_aInput" value="4" step="0.1" min="-100" max="100" style="width: 80px; background: white; border: 1px solid #cbd5e1; border-radius: 40px; padding: 8px 12px; font-size: 0.9rem; outline: none; text-align: center;">
+                                                    <span id="coord_aValue" style="background: #1e293b; color: white; padding: 4px 12px; border-radius: 40px; font-size: 0.9rem; font-weight: 600; min-width: 60px; text-align: center;">4.00</span>
+                                                </div>
+                                            </div>
+                                        </div>
 
                                         <!-- Границы по X и Y -->
                                         <div style="display: flex; flex-direction: column; gap: 4px; min-width: 160px;">
@@ -3526,8 +3719,8 @@ footer p {
                                     </div>
                                     
                                     <div class="button-group" style="justify-content: flex-end;">
-    <button class="btn btn-secondary" id="intervalClearAllPoints">🗑️ Очистить всё</button>
-</div>
+                                        <button class="btn btn-secondary" id="intervalClearAllPoints">🗑️ Очистить всё</button>
+                                    </div>
                                 </div>
 
                                 <div class="points-list" id="intervalPointsList"></div>
@@ -3559,7 +3752,7 @@ footer p {
                         </div>
 
                         <!-- Модальное окно для знаков интервалов -->
-      <div id="intervalSignModal" class="interval-modal-overlay" style="display: none;">
+                        <div id="intervalSignModal" class="interval-modal-overlay" style="display: none;">
                             <div class="interval-sign-modal">
                                 <h3>Выберите знак на интервале</h3>
                                 <div class="interval-sign-buttons">
@@ -3574,8 +3767,8 @@ footer p {
                             <button id="show-answer" class="btn btn-primary">
                                 <i class="fas fa-eye"></i> Показать ответ и решение
                             </button>
-                           <button id="prev-task" class="btn" style="background: #e43b3b; color: white; border: none;">
-                              <i class="fas fa-arrow-left"></i> Предыдущее задание
+                            <button id="prev-task" class="btn" style="background: #e43b3b; color: white; border: none;">
+                                <i class="fas fa-arrow-left"></i> Предыдущее задание
                             </button>
                             <button id="next-task" class="btn btn-secondary">
                                 <i class="fas fa-arrow-right"></i> Следующее задание
@@ -3596,7 +3789,7 @@ footer p {
             <!-- ЕДИНЫЙ БЛОК ЭКСПОРТА/ИМПОРТА ДАННЫХ (для сайта и ошибок) -->
             <div class="data-section">
                 <h3><i class="fas fa-file-export"></i> Экспорт и импорт данных</h3>
-                <p>Экспортируйте все данные сайта (включая добавленные задания, ошибки и прогресс) для резервного копирования или передачи другому человеку. Импортируйте данные, полученные от других.</p>
+                <p>Экспортируйте все данные сайта (включая добавленные задания, ошибки, прогресс и вопросы теста) для резервного копирования или передачи другому человеку. Импортируйте данные, полученные от других.</p>
                 
                 <div class="data-controls">
                     <button id="export-data-btn" class="btn btn-primary">
@@ -3613,10 +3806,10 @@ footer p {
                 <div class="data-instructions">
                     <h4><i class="fas fa-info-circle"></i> Инструкция по передаче данных:</h4>
                     <ol>
-                        <li>Нажмите "Экспортировать всё в JSON" - скачается файл со всеми данными сайта (задания, теория, ошибки, прогресс).</li>
+                        <li>Нажмите "Экспортировать всё в JSON" - скачается файл со всеми данными сайта (задания, теория, ошибки, прогресс, тесты).</li>
                         <li>Перешлите этот файл другому человеку или сохраните как бэкап.</li>
                         <li>Он должен нажать "Импортировать из JSON" и выбрать ваш файл.</li>
-                        <li>Готово! Все данные (задания, ошибки, настройки) появятся у него на сайте.</li>
+                        <li>Готово! Все данные (задания, ошибки, настройки, тесты) появятся у него на сайте.</li>
                         <li><strong>Внимание:</strong> При импорте существующие данные будут перезаписаны.</li>
                     </ol>
                 </div>
@@ -3653,9 +3846,9 @@ footer p {
     </div>
 
     <script>
+// ============ ТРИГОНОМЕТРИЧИСКАЯ ОКРУЖНОСТЬ С ВЫДЕЛЕНИЕМ ДУГ ============
 // ============ ТРИГОНОМЕТРИЧЕСКАЯ ОКРУЖНОСТЬ ============
 (function() {
-    // Элементы окружности
     const trigModal = document.getElementById('trig-circle-modal');
     const trigCloseBtn = document.querySelector('.trig-circle-close');
     const trigShowBtn = document.getElementById('show-trig-circle');
@@ -3671,7 +3864,6 @@ footer p {
     const cx = 300, cy = 300;
     const R = 190;
     
-    // Базовые углы (радианы)
     const angles = [
         0, Math.PI/6, Math.PI/4, Math.PI/3, Math.PI/2,
         2*Math.PI/3, 3*Math.PI/4, 5*Math.PI/6, Math.PI,
@@ -3679,9 +3871,119 @@ footer p {
         5*Math.PI/3, 7*Math.PI/4, 11*Math.PI/6
     ];
     
-    // Числители и знаменатели для каждого угла (для подписей)
     const nums = [0, 11, 7, 5, 3, 4, 5, 7, 1, 5, 3, 2, 1, 1, 1, 1];
     const denoms = [1, 6, 4, 3, 2, 3, 4, 6, 1, 6, 4, 3, 2, 3, 4, 6];
+    
+    // Выбранные точки
+    let selectedPoint1 = null;
+    let selectedPoint2 = null;
+    
+    let totalAngle = 0;  // угол стрелки
+    let dragging = false;
+    let lastMouseAngle = 0;
+    
+    function getAngleByIndex(index) {
+        return angles[index];
+    }
+    
+    // Рисование дуги между двумя углами (ПО ЧАСОВОЙ СТРЕЛКЕ)
+    function drawArcBetween(startAngle, endAngle, color, isDashed = false) {
+        let start = startAngle;
+        let end = endAngle;
+        
+        // Для движения ПО ЧАСОВОЙ: end должен быть меньше start
+        if (end >= start) {
+            end -= 2 * Math.PI;
+        }
+        
+        ctx.save();
+        ctx.beginPath();
+        ctx.arc(cx, cy, R - 10, start, end, true);
+        
+        if (isDashed) {
+            ctx.setLineDash([8, 8]);
+            ctx.lineWidth = 6;
+        } else {
+            ctx.setLineDash([]);
+            ctx.lineWidth = 8;
+        }
+        
+        ctx.strokeStyle = color;
+        ctx.shadowBlur = isDashed ? 0 : 8;
+        ctx.shadowColor = color;
+        ctx.stroke();
+        ctx.setLineDash([]);
+        ctx.restore();
+    }
+    
+    // Рисование полной дуги от точки1 до точки2 (всегда по часовой стрелке)
+    function drawFullArc(point1, point2) {
+        let angle1 = point1.angle;
+        let angle2 = point2.angle;
+        
+        let a2 = angle2;
+        if (a2 >= angle1) {
+            a2 -= 2 * Math.PI;
+        }
+        
+        drawArcBetween(angle1, a2, '#ff3333', false);
+    }
+    
+    // Рисование дуги с прогрессом (пройденная часть жирная, оставшаяся пунктирная)
+    function drawArcWithProgress(point1, point2, currentAngle) {
+        let start = point1.angle;
+        let end = point2.angle;
+        
+        let startForDraw = start;
+        let endForDraw = end;
+        let currentForDraw = currentAngle;
+        
+        // Нормализуем end, чтобы он был больше start для правильного рисования
+        if (endForDraw <= startForDraw) {
+            endForDraw += 2 * Math.PI;
+        }
+        // Нормализуем current
+        if (currentForDraw < startForDraw) {
+            currentForDraw += 2 * Math.PI;
+        }
+        if (currentForDraw > endForDraw) {
+            currentForDraw = endForDraw;
+        }
+        
+        // Пройденная часть (жирная)
+        if (currentForDraw > startForDraw) {
+            let s1 = startForDraw % (2 * Math.PI);
+            let e1 = currentForDraw % (2 * Math.PI);
+            if (e1 >= s1) e1 -= 2 * Math.PI;
+            ctx.save();
+            ctx.beginPath();
+            ctx.arc(cx, cy, R - 10, s1, e1, true);
+            ctx.setLineDash([]);
+            ctx.lineWidth = 8;
+            ctx.strokeStyle = '#ff3333';
+            ctx.shadowBlur = 8;
+            ctx.shadowColor = '#ff3333';
+            ctx.stroke();
+            ctx.restore();
+        }
+        
+        // Оставшаяся часть (пунктирная)
+        if (currentForDraw < endForDraw) {
+            let s2 = currentForDraw % (2 * Math.PI);
+            let e2 = endForDraw % (2 * Math.PI);
+            if (e2 >= s2) e2 -= 2 * Math.PI;
+            ctx.save();
+            ctx.beginPath();
+            ctx.arc(cx, cy, R - 10, s2, e2, true);
+            ctx.setLineDash([8, 8]);
+            ctx.lineWidth = 6;
+            ctx.strokeStyle = '#ff8888';
+            ctx.shadowBlur = 0;
+            ctx.stroke();
+            ctx.setLineDash([]);
+            ctx.restore();
+        }
+    }
     
     function getMouseAngle(e) {
         const rect = canvas.getBoundingClientRect();
@@ -3692,15 +3994,59 @@ footer p {
         return a;
     }
     
-    // Накопленный угол (растёт при движении против часовой, убывает при движении по часовой)
-    let totalAngle = 0;
-    let dragging = false;
-    let lastMouseAngle = 0;
+    function findPointIndexByAngle(angle) {
+        let minDiff = 0.2;
+        let bestIndex = -1;
+        for (let i = 0; i < angles.length; i++) {
+            let diff = Math.abs(angles[i] - angle);
+            diff = Math.min(diff, 2 * Math.PI - diff);
+            if (diff < minDiff) {
+                minDiff = diff;
+                bestIndex = i;
+            }
+        }
+        return bestIndex;
+    }
+    
+    canvas.addEventListener('dblclick', function(e) {
+        e.stopPropagation();
+        const mouseAngle = getMouseAngle(e);
+        const pointIndex = findPointIndexByAngle(mouseAngle);
+        
+        if (pointIndex !== -1) {
+            const pointAngle = getAngleByIndex(pointIndex);
+            
+            if (selectedPoint1 === null) {
+                selectedPoint1 = { index: pointIndex, angle: pointAngle };
+                selectedPoint2 = null;
+                draw();
+                showNotification(`✓ Выбрана первая точка`, 'info');
+            } else if (selectedPoint2 === null) {
+                if (selectedPoint1.index !== pointIndex) {
+                    selectedPoint2 = { index: pointIndex, angle: pointAngle };
+                    draw();
+                    showNotification(`✓ Выбрана вторая точка, дуга создана`, 'success');
+                } else {
+                    showNotification(`⚠ Выберите другую точку`, 'warning');
+                }
+            } else {
+                selectedPoint1 = { index: pointIndex, angle: pointAngle };
+                selectedPoint2 = null;
+                draw();
+                showNotification(`✓ Выделение сброшено, выбрана новая первая точка`, 'info');
+            }
+        } else {
+            selectedPoint1 = null;
+            selectedPoint2 = null;
+            draw();
+            showNotification(`⟲ Выделение сброшено`, 'info');
+        }
+    });
     
     function draw() {
         ctx.clearRect(0, 0, 600, 600);
         
-        // ---- КРУГ ----
+        // Круг
         ctx.beginPath();
         ctx.arc(cx, cy, R, 0, 2 * Math.PI);
         ctx.fillStyle = '#fffef9';
@@ -3712,7 +4058,48 @@ footer p {
         ctx.lineWidth = 4;
         ctx.stroke();
         
-        // ---- ОСИ ----
+        // Рисуем дугу если есть две точки
+        if (selectedPoint1 && selectedPoint2) {
+            let currentAngle = (totalAngle % (2 * Math.PI) + 2 * Math.PI) % (2 * Math.PI);
+            let start = selectedPoint1.angle;
+            let end = selectedPoint2.angle;
+            
+            // Проверяем, находится ли стрелка между точками по часовой стрелке
+            let isBetween = false;
+            if (end > start) {
+                // Дуга идёт через 0
+                if (currentAngle >= start || currentAngle <= end) {
+                    isBetween = true;
+                }
+            } else {
+                // Дуга прямая
+                if (currentAngle >= end && currentAngle <= start) {
+                    isBetween = true;
+                }
+            }
+            
+            if (isBetween) {
+                // Стрелка внутри дуги - показываем прогресс
+                let currentForDraw = currentAngle;
+                if (end > start) {
+                    if (currentForDraw < start) {
+                        currentForDraw += 2 * Math.PI;
+                    }
+                    drawArcWithProgress(
+                        { angle: start },
+                        { angle: end + 2 * Math.PI },
+                        currentForDraw
+                    );
+                } else {
+                    drawArcWithProgress(selectedPoint1, selectedPoint2, currentAngle);
+                }
+            } else {
+                // Стрелка вне дуги - просто показываем полную дугу
+                drawFullArc(selectedPoint1, selectedPoint2);
+            }
+        }
+        
+        // Оси
         ctx.beginPath();
         ctx.moveTo(cx - R - 5, cy);
         ctx.lineTo(cx + R + 5, cy);
@@ -3729,32 +4116,52 @@ footer p {
         ctx.fillText('1', cx + 15, cy - R + 30);
         ctx.fillText('-1', cx + 15, cy + R - 20);
         
-        // ---- ВЫЧИСЛЯЕМ КОЛИЧЕСТВО ПОЛНЫХ ОБОРОТОВ ДЛЯ ПОДПИСЕЙ (используем -totalAngle) ----
+        // Номер оборота (сверху)
+        let rotationCount = Math.floor(Math.abs(totalAngle) / (2 * Math.PI));
+        ctx.font = 'bold 20px Arial';
+        ctx.fillStyle = '#1e6e82';
+        ctx.shadowBlur = 0;
+        ctx.fillText(`Оборот: ${rotationCount}`, cx - 70, cy - R - 40);
+        
         const turns = Math.floor(-totalAngle / (2 * Math.PI));
         
-        // ---- ТОЧКИ И ПОДПИСИ УГЛОВ ----
+        // Точки
         for (let i = 0; i < angles.length; i++) {
             const a = angles[i];
             const x = cx + R * Math.cos(a);
             const y = cy + R * Math.sin(a);
             
-            // Точка
+            const isFirst = selectedPoint1 && selectedPoint1.index === i;
+            const isSecond = selectedPoint2 && selectedPoint2.index === i;
+            
             ctx.beginPath();
-            ctx.arc(x, y, 5, 0, 2 * Math.PI);
-            ctx.fillStyle = '#01313c';
-            ctx.shadowBlur = 10;
-            ctx.shadowColor = '#107890';
+            ctx.arc(x, y, 7, 0, 2 * Math.PI);
+            
+            if (isFirst || isSecond) {
+                ctx.fillStyle = '#ff3333';
+                ctx.shadowBlur = 15;
+                ctx.shadowColor = '#ff0000';
+            } else {
+                ctx.fillStyle = '#01313c';
+                ctx.shadowBlur = 10;
+                ctx.shadowColor = '#107890';
+            }
             ctx.fill();
             ctx.shadowBlur = 0;
             
-            // ---- ВЫНОС ДЛЯ УГЛА ----
+            if (isFirst || isSecond) {
+                ctx.beginPath();
+                ctx.arc(x, y, 9, 0, 2 * Math.PI);
+                ctx.strokeStyle = '#ff6666';
+                ctx.lineWidth = 2;
+                ctx.stroke();
+            }
+            
             const angleOffset = 38;
             const basePX = cx + (R + angleOffset) * Math.cos(a);
             const basePY = cy + (R + angleOffset) * Math.sin(a);
             
             let pX, pY, pAlign;
-            
-            // Индивидуальные подстройки (без изменений, только для углов)
             switch(i) {
                 case 0: pX = basePX + 14; pY = basePY - 20; pAlign = 'left'; break;
                 case 1: pX = basePX -10; pY = basePY - 22; pAlign = 'left'; break;
@@ -3774,16 +4181,11 @@ footer p {
                 case 15: pX = basePX -10; pY = basePY + 18; pAlign = 'left'; break;
             }
             
-            // ---- ПОДПИСЬ УГЛА С УЧЁТОМ ОБОРОТОВ (используем turns) ----
             const displayNum = nums[i] + turns * 2 * denoms[i];
             let angleLabel;
-            if (displayNum === 0) {
-                angleLabel = '0';
-            } else if (denoms[i] === 1) {
-                angleLabel = displayNum + 'π';
-            } else {
-                angleLabel = displayNum + 'π/' + denoms[i];
-            }
+            if (displayNum === 0) angleLabel = '0';
+            else if (denoms[i] === 1) angleLabel = displayNum + 'π';
+            else angleLabel = displayNum + 'π/' + denoms[i];
             
             ctx.font = 'bold 22px "Times New Roman", serif';
             ctx.fillStyle = '#002c38';
@@ -3791,12 +4193,11 @@ footer p {
             ctx.shadowColor = 'white';
             ctx.textAlign = pAlign;
             ctx.fillText(angleLabel, pX, pY);
-            
             ctx.shadowBlur = 0;
         }
         
-        // ---- СТРЕЛКА (рисуется по totalAngle, приведённому к [0, 2π)) ----
-        let displayAngle = ((totalAngle % (2*Math.PI)) + 2*Math.PI) % (2*Math.PI);
+        // Стрелка
+        let displayAngle = (totalAngle % (2 * Math.PI) + 2 * Math.PI) % (2 * Math.PI);
         let ax = cx + R * 0.97 * Math.cos(displayAngle);
         let ay = cy + R * 0.97 * Math.sin(displayAngle);
         
@@ -3819,11 +4220,10 @@ footer p {
         ctx.fill();
         ctx.shadowBlur = 0;
         
-        // ---- ЗНАЧЕНИЕ УГЛА В ПАНЕЛИ (показываем -totalAngle, чтобы росло по часовой) ----
+        // Меняем знак у отображаемого угла
         angleSpan.innerText = (-totalAngle / Math.PI).toFixed(3) + 'π';
     }
     
-    // ---- МЫШЬ: стрелка следует за мышью (totalAngle += delta) ----
     function onMouseDown(e) {
         dragging = true;
         lastMouseAngle = getMouseAngle(e);
@@ -3833,22 +4233,26 @@ footer p {
     function onMouseMove(e) {
         if (!dragging) return;
         let currentMouse = getMouseAngle(e);
-        
-        // Разница углов с учётом перехода через 0 (кратчайший путь)
         let delta = currentMouse - lastMouseAngle;
-        if (delta > Math.PI) delta -= 2*Math.PI;
-        if (delta < -Math.PI) delta += 2*Math.PI;
+        if (delta > Math.PI) delta -= 2 * Math.PI;
+        if (delta < -Math.PI) delta += 2 * Math.PI;
         
-        // Обновляем totalAngle — стрелка следует за мышью
         totalAngle += delta;
-        
         lastMouseAngle = currentMouse;
         draw();
     }
     
     function onMouseUp() { dragging = false; canvas.style.cursor = 'grab'; }
     function onMouseLeave() { dragging = false; canvas.style.cursor = 'grab'; }
-    function reset() { totalAngle = 0; draw(); }
+    
+    function reset() {
+        totalAngle = 0;
+        selectedPoint1 = null;
+        selectedPoint2 = null;
+        draw();
+        showNotification('⟲ Всё сброшено', 'info');
+    }
+    
     function onPeriodChange() { draw(); }
     
     canvas.addEventListener('mousedown', onMouseDown);
@@ -3858,11 +4262,10 @@ footer p {
     if (periodSelect) periodSelect.addEventListener('change', onPeriodChange);
     if (resetBtn) resetBtn.addEventListener('click', reset);
     
-    // Обработчики для модального окна
     if (trigShowBtn) {
         trigShowBtn.addEventListener('click', function() {
             trigModal.style.display = 'block';
-            reset(); // Сбрасываем угол при открытии
+            reset();
         });
     }
     
@@ -3878,7 +4281,6 @@ footer p {
         }
     });
     
-    // Первоначальная отрисовка
     draw();
 })();
 
@@ -4634,6 +5036,67 @@ const courseData = {
                         </div>
                     </div>
                 </div>
+
+                <!-- НОВЫЙ БЛОК: МЕТОД РАЦИОНАЛИЗАЦИИ -->
+                <div class="theory-section">
+                    <h4><i class="fas fa-balance-scale"></i> Метод рационализации (замена множителей)</h4>
+                    <p>Метод рационализации позволяет заменить сложное выражение (логарифмическое, показательное или модуль) на более простое, рациональное, с сохранением знака неравенства на области допустимых значений. Это мощный инструмент для решения неравенств из задания 15.</p>
+                    
+                    <h5>Основные правила замены:</h5>
+                    <div class="formula-grid">
+                        <div class="formula-card">
+                            <h5><i class="fas fa-log"></i> Логарифмические неравенства</h5>
+                            <div class="formula-item">
+                                <strong>logₐ f(x) ≥ logₐ g(x)</strong> равносильно (a - 1)·(f(x) - g(x)) ≥ 0 на ОДЗ.
+                            </div>
+                            <div class="formula-item">
+                                <strong>logₐ f(x) ≥ 0</strong> равносильно (a - 1)·(f(x) - 1) ≥ 0 на ОДЗ.
+                            </div>
+                            <div class="formula-item">
+                                <strong>logₐ f(x) ≥ b</strong> равносильно (a - 1)·(f(x) - aᵇ) ≥ 0 на ОДЗ.
+                            </div>
+                        </div>
+                        
+                        <div class="formula-card">
+                            <h5><i class="fas fa-superscript"></i> Показательные неравенства</h5>
+                            <div class="formula-item">
+                                <strong>a^(f(x)) ≥ a^(g(x))</strong> равносильно (a - 1)·(f(x) - g(x)) ≥ 0.
+                            </div>
+                            <div class="formula-item">
+                                <strong>a^(f(x)) ≥ 1</strong> равносильно (a - 1)·f(x) ≥ 0.
+                            </div>
+                        </div>
+                        
+                        <div class="formula-card">
+                            <h5><i class="fas fa-th-large"></i> Неравенства с модулем</h5>
+                            <div class="formula-item">
+                                <strong>|f(x)| ≥ |g(x)|</strong> равносильно (f(x) - g(x))·(f(x) + g(x)) ≥ 0.
+                            </div>
+                            <div class="formula-item">
+                                <strong>|f(x)| ≥ c (c>0)</strong> равносильно f²(x) ≥ c².
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h5>Важные замечания:</h5>
+                    <ul>
+                        <li>Метод работает только на ОДЗ исходного неравенства.</li>
+                        <li>При использовании метода для логарифмов необходимо помнить про ОДЗ: f(x) > 0, g(x) > 0, a > 0, a ≠ 1.</li>
+                        <li>Знак множителя (a - 1) определяет направление неравенства: при a > 1 знак сохраняется, при 0 < a < 1 — меняется.</li>
+                        <li>Метод рационализации позволяет избежать рассмотрения двух случаев для оснований логарифмов или показательных функций.</li>
+                    </ul>
+                    
+                    <h5>Пример применения:</h5>
+                    <div class="formula-item">
+                        Решим неравенство: <strong>logₓ(x+2) > logₓ(4)</strong>.
+                        <br>ОДЗ: x > 0, x ≠ 1, x+2 > 0 ⇒ x > -2. Итого: x ∈ (0, 1) ∪ (1, ∞).
+                        <br>Применяем метод рационализации: (x - 1)·( (x+2) - 4 ) > 0.
+                        <br>Получаем: (x - 1)·(x - 2) > 0.
+                        <br>Решение этого неравенства: x ∈ (-∞, 1) ∪ (2, ∞).
+                        <br>Пересекаем с ОДЗ: x ∈ (0, 1) ∪ (2, ∞).
+                        <br><strong>Ответ: (0, 1) ∪ (2, ∞).</strong>
+                    </div>
+                </div>
                 
                 <div class="theory-section">
                     <h4><i class="fas fa-lightbulb"></i> Важные моменты</h4>
@@ -4642,6 +5105,7 @@ const courseData = {
                         <li>Помните о смене знака неравенства при умножении/делении на отрицательное число</li>
                         <li>Для логарифмических неравенств учитывайте основание логарифма</li>
                         <li>Используйте замену переменной для упрощения</li>
+                        <li>Метод рационализации значительно упрощает решение сложных неравенств</li>
                     </ul>
                 </div>
             </div>
@@ -6189,6 +6653,11 @@ class AdminSystem {
         document.getElementById('theory-type')?.addEventListener('change', () => {
             this.loadTheoryEditor();
         });
+
+        // Обработчики для итогового теста
+        document.getElementById('add-test-question-btn')?.addEventListener('click', () => {
+            this.addTestQuestion();
+        });
     }
 
     resetEditMode() {
@@ -6207,10 +6676,18 @@ class AdminSystem {
             delete practiceButton.dataset.editTask;
             delete practiceButton.dataset.editIndex;
         }
+
+        // Сброс режима редактирования для теста
+        const testButton = document.getElementById('add-test-question-btn');
+        if (testButton) {
+            testButton.innerHTML = '<i class="fas fa-save"></i> Добавить вопрос';
+            delete testButton.dataset.editIndex;
+        }
         
         // Очистка полей ввода
         const clearFields = ['example-title', 'example-statement', 'example-solution', 
-                           'practice-source', 'practice-question', 'practice-answer'];
+                           'practice-source', 'practice-question', 'practice-answer',
+                           'test-question-text', 'test-options', 'test-correct', 'test-explanation'];
         clearFields.forEach(id => {
             const field = document.getElementById(id);
             if (field) field.value = '';
@@ -6246,6 +6723,7 @@ class AdminSystem {
         this.loadExamplesList();
         this.loadPracticeList();
         this.loadTheoryEditor();
+        this.loadTestQuestionsList();
     }
 
     addExample() {
@@ -6583,6 +7061,158 @@ class AdminSystem {
             document.getElementById('admin-button')?.classList.remove('hidden');
         }
     }
+
+    // ============ МЕТОДЫ ДЛЯ ИТОГОВОГО ТЕСТА ============
+    loadTestQuestionsList() {
+        const container = document.getElementById('test-questions-list');
+        if (!container) return;
+        
+        const testQuestions = JSON.parse(localStorage.getItem('testQuestions') || '[]');
+        
+        if (testQuestions.length === 0) {
+            container.innerHTML = '<p>Пока нет вопросов. Добавьте первый вопрос!</p>';
+            return;
+        }
+        
+        let html = '';
+        testQuestions.forEach((question, index) => {
+            html += `
+                <div class="admin-item">
+                    <div class="admin-item-info">
+                        <div class="admin-item-title">${question.text.substring(0, 60)}${question.text.length > 60 ? '...' : ''}</div>
+                        <div class="admin-item-meta">Правильный ответ: ${question.correct}</div>
+                    </div>
+                    <div class="admin-item-actions">
+                        <button class="btn btn-small btn-outline edit-test-question" data-index="${index}">
+                            <i class="fas fa-edit"></i>
+                        </button>
+                        <button class="btn btn-small btn-outline delete-test-question" data-index="${index}">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
+                </div>
+            `;
+        });
+        
+        container.innerHTML = html;
+        
+        // Назначаем обработчики
+        container.querySelectorAll('.edit-test-question').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const index = parseInt(btn.dataset.index);
+                this.editTestQuestion(index);
+            });
+        });
+        
+        container.querySelectorAll('.delete-test-question').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const index = parseInt(btn.dataset.index);
+                if (confirm('Удалить этот вопрос?')) {
+                    this.deleteTestQuestion(index);
+                }
+            });
+        });
+    }
+
+  addTestQuestion() {
+    const addButton = document.getElementById('add-test-question-btn');
+    const isEditing = addButton.dataset.editIndex !== undefined;
+    
+    const text = document.getElementById('test-question-text').value;
+    const optionsStr = document.getElementById('test-options').value;
+    const correct = document.getElementById('test-correct').value;
+    
+    if (!text || !optionsStr || !correct) {
+        showNotification('Заполните все поля вопроса', 'warning');
+        return;
+    }
+    
+    const options = optionsStr.split(',').map(opt => opt.trim());
+    if (options.length < 2) {
+        showNotification('Добавьте минимум 2 варианта ответа', 'warning');
+        return;
+    }
+    
+    if (!options.includes(correct)) {
+        showNotification('Правильный ответ должен быть среди вариантов', 'warning');
+        return;
+    }
+    
+    const testQuestions = JSON.parse(localStorage.getItem('testQuestions') || '[]');
+    const newQuestion = { text, options, correct };
+    
+    if (isEditing) {
+        const editIndex = parseInt(addButton.dataset.editIndex);
+        testQuestions[editIndex] = newQuestion;
+        showNotification('Вопрос обновлен!', 'success');
+    } else {
+        testQuestions.push(newQuestion);
+        showNotification('Вопрос добавлен в тест!', 'success');
+    }
+    
+    localStorage.setItem('testQuestions', JSON.stringify(testQuestions));
+    
+    this.loadTestQuestionsList();
+    this.resetEditMode();
+    
+    document.getElementById('test-question-text').value = '';
+    document.getElementById('test-options').value = '';
+    document.getElementById('test-correct').value = '';
+    
+    if (currentTask === 'test') {
+        renderTest();
+    }
+}
+
+editTestQuestion(index) {
+    const testQuestions = JSON.parse(localStorage.getItem('testQuestions') || '[]');
+    const question = testQuestions[index];
+    
+    if (!question) return;
+    
+    document.getElementById('test-question-text').value = question.text;
+    document.getElementById('test-options').value = question.options.join(', ');
+    document.getElementById('test-correct').value = question.correct;
+    
+    const addButton = document.getElementById('add-test-question-btn');
+    addButton.innerHTML = '<i class="fas fa-save"></i> Сохранить изменения';
+    addButton.dataset.editIndex = index;
+    
+    document.querySelector('.admin-section').scrollIntoView({ behavior: 'smooth' });
+}
+
+    editTestQuestion(index) {
+        const testQuestions = JSON.parse(localStorage.getItem('testQuestions') || '[]');
+        const question = testQuestions[index];
+        
+        if (!question) return;
+        
+        document.getElementById('test-question-text').value = question.text;
+        document.getElementById('test-options').value = question.options.join(', ');
+        document.getElementById('test-correct').value = question.correct;
+        document.getElementById('test-explanation').value = question.explanation || '';
+        
+        const addButton = document.getElementById('add-test-question-btn');
+        addButton.innerHTML = '<i class="fas fa-save"></i> Сохранить изменения';
+        addButton.dataset.editIndex = index;
+        
+        // Прокручиваем к форме
+        document.querySelector('.admin-section').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    deleteTestQuestion(index) {
+        const testQuestions = JSON.parse(localStorage.getItem('testQuestions') || '[]');
+        testQuestions.splice(index, 1);
+        localStorage.setItem('testQuestions', JSON.stringify(testQuestions));
+        
+        this.loadTestQuestionsList();
+        showNotification('Вопрос удален', 'warning');
+        
+        // Если сейчас открыт тест, обновляем его отображение
+        if (currentTask === 'test') {
+            renderTest();
+        }
+    }
 }
 
 // ============ ЕДИНАЯ СИСТЕМА ЭКСПОРТА/ИМПОРТА ДАННЫХ (для сайта и ошибок) ============
@@ -6627,65 +7257,69 @@ class DataExportImportSystem {
     }
 
     exportAllData() {
-    const exportData = {};
-    
-    // 1. Админские данные (примеры, практика, теория)
-    [13, 15, 18].forEach(taskNumber => {
-        const examplesKey = `admin_examples_${taskNumber}`;
-        const practiceKey = `admin_practice_${taskNumber}`;
-        const theoryKey = `admin_theory_${taskNumber}`;
-        const algorithmKey = `admin_algorithm_${taskNumber}`;
+        const exportData = {};
         
-        const examples = localStorage.getItem(examplesKey);
-        const practice = localStorage.getItem(practiceKey);
-        const theory = localStorage.getItem(theoryKey);
-        const algorithm = localStorage.getItem(algorithmKey);
+        // 1. Админские данные (примеры, практика, теория)
+        [13, 15, 18].forEach(taskNumber => {
+            const examplesKey = `admin_examples_${taskNumber}`;
+            const practiceKey = `admin_practice_${taskNumber}`;
+            const theoryKey = `admin_theory_${taskNumber}`;
+            const algorithmKey = `admin_algorithm_${taskNumber}`;
+            
+            const examples = localStorage.getItem(examplesKey);
+            const practice = localStorage.getItem(practiceKey);
+            const theory = localStorage.getItem(theoryKey);
+            const algorithm = localStorage.getItem(algorithmKey);
+            
+            if (examples) exportData[examplesKey] = JSON.parse(examples);
+            if (practice) exportData[practiceKey] = JSON.parse(practice);
+            if (theory) exportData[theoryKey] = theory;
+            if (algorithm) exportData[algorithmKey] = algorithm;
+        });
         
-        if (examples) exportData[examplesKey] = JSON.parse(examples);
-        if (practice) exportData[practiceKey] = JSON.parse(practice);
-        if (theory) exportData[theoryKey] = theory;
-        if (algorithm) exportData[algorithmKey] = algorithm;
-    });
-    
-    // 2. Пользовательские данные (авторизация)
-    const users = localStorage.getItem('users');
-    const completedTasks = localStorage.getItem('completedTasks');
-    const currentUser = localStorage.getItem('currentUser');
-    const isAdmin = localStorage.getItem('isAdmin');
-    
-    if (users) exportData.users = JSON.parse(users);
-    if (completedTasks) exportData.completedTasks = JSON.parse(completedTasks);
-    if (currentUser) exportData.currentUser = JSON.parse(currentUser);
-    if (isAdmin) exportData.isAdmin = isAdmin;
-    
-    // 3. Ошибки - ИСПРАВЛЕНО: берем напрямую из localStorage, а не из mistakesSystem
-    const userMistakes = localStorage.getItem('userMistakes');
-    const sharedMistakes = localStorage.getItem('sharedMistakes');
-    
-    if (userMistakes) exportData.userMistakes = JSON.parse(userMistakes);
-    if (sharedMistakes) exportData.sharedMistakes = JSON.parse(sharedMistakes);
-    
-    // Метаданные экспорта
-    exportData.exportMetadata = {
-        date: new Date().toISOString(),
-        version: '2.0',
-        description: 'Единый экспорт всех данных сайта (включая ошибки)'
-    };
+        // 2. Данные итогового теста
+        const testQuestions = localStorage.getItem('testQuestions');
+        if (testQuestions) exportData.testQuestions = JSON.parse(testQuestions);
+        
+        // 3. Пользовательские данные (авторизация)
+        const users = localStorage.getItem('users');
+        const completedTasks = localStorage.getItem('completedTasks');
+        const currentUser = localStorage.getItem('currentUser');
+        const isAdmin = localStorage.getItem('isAdmin');
+        
+        if (users) exportData.users = JSON.parse(users);
+        if (completedTasks) exportData.completedTasks = JSON.parse(completedTasks);
+        if (currentUser) exportData.currentUser = JSON.parse(currentUser);
+        if (isAdmin) exportData.isAdmin = isAdmin;
+        
+        // 4. Ошибки
+        const userMistakes = localStorage.getItem('userMistakes');
+        const sharedMistakes = localStorage.getItem('sharedMistakes');
+        
+        if (userMistakes) exportData.userMistakes = JSON.parse(userMistakes);
+        if (sharedMistakes) exportData.sharedMistakes = JSON.parse(sharedMistakes);
+        
+        // Метаданные экспорта
+        exportData.exportMetadata = {
+            date: new Date().toISOString(),
+            version: '3.0',
+            description: 'Единый экспорт всех данных сайта (включая тесты)'
+        };
 
-    const dataStr = JSON.stringify(exportData, null, 2);
-    const dataBlob = new Blob([dataStr], { type: 'application/json' });
-    const url = URL.createObjectURL(dataBlob);
-    
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = `ege-math-all-data-${new Date().toISOString().split('T')[0]}.json`;
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    URL.revokeObjectURL(url);
-    
-    showNotification('Все данные (задания, ошибки, прогресс) экспортированы успешно!', 'success');
-}
+        const dataStr = JSON.stringify(exportData, null, 2);
+        const dataBlob = new Blob([dataStr], { type: 'application/json' });
+        const url = URL.createObjectURL(dataBlob);
+        
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `ege-math-all-data-${new Date().toISOString().split('T')[0]}.json`;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+        
+        showNotification('Все данные (задания, ошибки, прогресс, тесты) экспортированы успешно!', 'success');
+    }
 
     triggerImportData() {
         document.getElementById('import-data-file').click();
@@ -6699,61 +7333,39 @@ class DataExportImportSystem {
                 const data = JSON.parse(e.target.result);
                 let importedCount = 0;
                 
-                // 1. Импортируем все ключи, которые являются обычными данными localStorage
-                // Но нужно быть осторожным, чтобы не перезаписать всё подряд
+                // 1. Импортируем все ключи
                 for (const key in data) {
-                    if (key === 'exportMetadata' || key === 'users' || key === 'completedTasks' || 
-                        key === 'currentUser' || key === 'isAdmin' || key === 'userMistakes' || 
-                        key === 'sharedMistakes' || key.startsWith('admin_')) {
-                        
-                        if (typeof data[key] === 'object') {
-                            localStorage.setItem(key, JSON.stringify(data[key]));
-                        } else {
-                            localStorage.setItem(key, data[key]);
-                        }
-                        importedCount++;
+                    if (key === 'exportMetadata') continue;
+                    
+                    if (typeof data[key] === 'object') {
+                        localStorage.setItem(key, JSON.stringify(data[key]));
+                    } else {
+                        localStorage.setItem(key, data[key]);
                     }
+                    importedCount++;
                 }
                 
-                // 2. Специальная обработка для систем, которые нужно перезагрузить
-                
-                // Обновляем админские данные
+                // 2. Специальная обработка для систем
                 if (adminSystem) {
                     adminSystem.loadAdminData();
+                    adminSystem.loadTestQuestionsList();
                 }
                 
-                // Обновляем текущее задание
                 updateCurrentTask();
                 
-                // Обновляем пользовательские данные
-                if (data.users) {
-                    // Просто сохранили выше
-                }
-                
-                if (data.completedTasks && taskCompletionSystem) {
-                    taskCompletionSystem.completedTasks = data.completedTasks;
+                if (taskCompletionSystem) {
+                    taskCompletionSystem.completedTasks = JSON.parse(localStorage.getItem('completedTasks') || '{}');
                     taskCompletionSystem.saveToLocalStorage();
                     taskCompletionSystem.updateAllCompletionStates();
                     taskCompletionSystem.updateStatistics();
                 }
                 
-                // Обновляем ошибки через систему MistakesSystem
-if (data.userMistakes) {
-    localStorage.setItem('userMistakes', JSON.stringify(data.userMistakes));
-    console.log('Импортированы пользовательские ошибки:', data.userMistakes.length);
-}
-if (data.sharedMistakes) {
-    localStorage.setItem('sharedMistakes', JSON.stringify(data.sharedMistakes));
-    console.log('Импортированы общие ошибки:', data.sharedMistakes.length);
-}
-
-// Затем перезагружаем систему ошибок
-if (mistakesSystem) {
-    // Перезагружаем данные из localStorage
-    mistakesSystem.userMistakes = JSON.parse(localStorage.getItem('userMistakes') || '[]');
-    mistakesSystem.sharedMistakes = JSON.parse(localStorage.getItem('sharedMistakes') || '[]');
-    mistakesSystem.renderMistakes(); // Перерисовываем
-}
+                // Обновляем ошибки
+                if (mistakesSystem) {
+                    mistakesSystem.userMistakes = JSON.parse(localStorage.getItem('userMistakes') || '[]');
+                    mistakesSystem.sharedMistakes = JSON.parse(localStorage.getItem('sharedMistakes') || '[]');
+                    mistakesSystem.renderMistakes();
+                }
                 
                 // Обновляем статус администратора
                 if (data.isAdmin) {
@@ -6764,7 +7376,7 @@ if (mistakesSystem) {
                     }
                 }
                 
-                // Перезагружаем пользователя, если он есть
+                // Перезагружаем пользователя
                 if (data.currentUser) {
                     localStorage.setItem('currentUser', JSON.stringify(data.currentUser));
                     if (userSystem) {
@@ -6775,6 +7387,11 @@ if (mistakesSystem) {
                 
                 // Обновляем интерфейс
                 checkAuthStatus();
+                
+                // Если открыт тест, перерисовываем
+                if (currentTask === 'test') {
+                    renderTest();
+                }
                 
                 showNotification(`Импортировано ${importedCount} записей! Все данные успешно загружены.`, 'success');
                 
@@ -6788,7 +7405,7 @@ if (mistakesSystem) {
     }
 
     resetAllData() {
-        if (confirm('ВНИМАНИЕ! Это удалит ВСЕ данные: добавленные задания, примеры, теорию, ваши ошибки, прогресс и пользователей. Вы уверены?')) {
+        if (confirm('ВНИМАНИЕ! Это удалит ВСЕ данные: добавленные задания, примеры, теорию, тесты, ваши ошибки, прогресс и пользователей. Вы уверены?')) {
             // Удаляем админские данные
             [13, 15, 18].forEach(taskNumber => {
                 localStorage.removeItem(`admin_examples_${taskNumber}`);
@@ -6796,6 +7413,9 @@ if (mistakesSystem) {
                 localStorage.removeItem(`admin_theory_${taskNumber}`);
                 localStorage.removeItem(`admin_algorithm_${taskNumber}`);
             });
+            
+            // Удаляем данные теста
+            localStorage.removeItem('testQuestions');
             
             // Удаляем пользовательские данные
             localStorage.removeItem('users');
@@ -7050,12 +7670,205 @@ function updateHTMLForMathEditor() {
     });
 }
 
+// ============ ФУНКЦИИ ДЛЯ ИТОГОВОГО ТЕСТА ============
+let currentTestIndex = 0;
+let userTestAnswers = JSON.parse(localStorage.getItem('userTestAnswers') || '{}');
+let testCompleted = false;
+
+function renderTest() {
+    const practiceContent = document.getElementById('practice-content');
+    if (!practiceContent) return;
+    
+    const testQuestions = JSON.parse(localStorage.getItem('testQuestions') || '[]');
+    
+    if (testQuestions.length === 0) {
+        practiceContent.innerHTML = `
+            <div class="test-container">
+                <p>Вопросы теста еще не добавлены. Администратор может добавить вопросы в админ-панели.</p>
+            </div>
+        `;
+        return;
+    }
+    
+    // Проверяем, завершен ли тест для текущего пользователя
+    if (userSystem.currentUser) {
+        const userEmail = userSystem.currentUser.email;
+        if (userTestAnswers[userEmail] && userTestAnswers[userEmail].completed) {
+            testCompleted = true;
+            const score = userTestAnswers[userEmail].score || 0;
+            practiceContent.innerHTML = `
+                <div class="test-result">
+                    <h3><i class="fas fa-trophy"></i> Тест завершен!</h3>
+                    <p>Ваш результат: ${score} / ${testQuestions.length}</p>
+                    <p>Процент выполнения: ${Math.round(score / testQuestions.length * 100)}%</p>
+                    <button id="reset-test-btn" class="btn btn-primary">Пройти тест заново</button>
+                </div>
+            `;
+            document.getElementById('reset-test-btn')?.addEventListener('click', () => {
+                if (userSystem.currentUser) {
+                    userTestAnswers[userSystem.currentUser.email] = { answers: {}, score: 0, completed: false };
+                    localStorage.setItem('userTestAnswers', JSON.stringify(userTestAnswers));
+                    testCompleted = false;
+                    currentTestIndex = 0;
+                    renderTest();
+                } else {
+                    showNotification('Войдите в аккаунт', 'warning');
+                }
+            });
+            return;
+        }
+    }
+    
+    testCompleted = false;
+    const question = testQuestions[currentTestIndex];
+    const userEmail = userSystem.currentUser?.email;
+    const savedAnswer = userEmail && userTestAnswers[userEmail] ? userTestAnswers[userEmail].answers[currentTestIndex] : null;
+    
+    // Проверяем, был ли уже дан ответ на этот вопрос
+    const isAnswered = savedAnswer !== null && savedAnswer !== undefined;
+    const isCorrect = isAnswered && savedAnswer === question.correct;
+    
+    let optionsHtml = '';
+    question.options.forEach((option, idx) => {
+        const checked = savedAnswer === option ? 'checked' : '';
+        const disabled = isAnswered ? 'disabled' : '';
+        
+        // Никакой подсветки правильного ответа
+        let optionStyle = '';
+        if (isAnswered && savedAnswer === option && isCorrect) {
+            optionStyle = 'color: #27ae60; font-weight: bold;';
+        } else if (isAnswered && savedAnswer === option && !isCorrect) {
+            optionStyle = 'color: #e74c3c;';
+        } else if (isAnswered) {
+            optionStyle = 'color: #95a5a6;';
+        }
+        
+        optionsHtml += `
+            <li class="test-option">
+                <input type="radio" name="test-option" value="${option.replace(/"/g, '&quot;')}" id="opt_${idx}" ${checked} ${disabled}>
+                <label for="opt_${idx}" style="${optionStyle}">${option}</label>
+            </li>
+        `;
+    });
+    
+    // Сообщение после ответа (без показа правильного ответа)
+    let feedbackHtml = '';
+    if (isAnswered) {
+        if (isCorrect) {
+            feedbackHtml = `
+                <div style="margin-top: 10px; padding: 10px; background: #e8f5e9; border-radius: 8px; color: #2e7d32;">
+                    <i class="fas fa-check-circle"></i> Верно!
+                </div>
+            `;
+        } else {
+            feedbackHtml = `
+                <div style="margin-top: 10px; padding: 10px; background: #ffebee; border-radius: 8px; color: #c62828;">
+                    <i class="fas fa-times-circle"></i> Неверно.
+                </div>
+            `;
+        }
+    }
+    
+    practiceContent.innerHTML = `
+        <div class="test-container">
+            <div class="test-question">
+                <div class="test-question-text">${question.text}</div>
+                <ul class="test-options">
+                    ${optionsHtml}
+                </ul>
+                ${feedbackHtml}
+            </div>
+            <div class="test-nav">
+                <button class="btn btn-secondary" id="test-prev" ${currentTestIndex === 0 ? 'disabled' : ''}>
+                    <i class="fas fa-arrow-left"></i> Назад
+                </button>
+                <span class="test-progress">${currentTestIndex + 1} / ${testQuestions.length}</span>
+                <button class="btn btn-primary" id="test-next">
+                    ${currentTestIndex === testQuestions.length - 1 ? 'Завершить' : 'Далее'} <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+        </div>
+    `;
+    
+    // Обработчики для радиокнопок (только если вопрос еще не отвечен)
+    if (!isAnswered) {
+        document.querySelectorAll('input[name="test-option"]').forEach(radio => {
+            radio.addEventListener('change', (e) => {
+                if (!userSystem.currentUser) {
+                    showNotification('Войдите в аккаунт для сохранения прогресса', 'warning');
+                    return;
+                }
+                
+                const answer = e.target.value;
+                const userEmail = userSystem.currentUser.email;
+                if (!userTestAnswers[userEmail]) {
+                    userTestAnswers[userEmail] = { answers: {}, score: 0, completed: false };
+                }
+                userTestAnswers[userEmail].answers[currentTestIndex] = answer;
+                localStorage.setItem('userTestAnswers', JSON.stringify(userTestAnswers));
+                
+                // Перерисовываем текущий вопрос
+                renderTest();
+                
+                // Показываем уведомление
+                const isAnswerCorrect = answer === question.correct;
+                if (isAnswerCorrect) {
+                    showNotification('✓ Верно!', 'success');
+                } else {
+                    showNotification('✗ Неверно', 'warning');
+                }
+            });
+        });
+    }
+    
+    // Обработчик кнопки "Назад"
+    document.getElementById('test-prev')?.addEventListener('click', () => {
+        if (currentTestIndex > 0) {
+            currentTestIndex--;
+            renderTest();
+        }
+    });
+    
+    // Обработчик кнопки "Далее/Завершить"
+    document.getElementById('test-next')?.addEventListener('click', () => {
+        if (!userSystem.currentUser) {
+            showNotification('Войдите в аккаунт для завершения теста', 'warning');
+            return;
+        }
+        
+        const testQuestionsLocal = JSON.parse(localStorage.getItem('testQuestions') || '[]');
+        const userEmail = userSystem.currentUser.email;
+        
+        if (currentTestIndex === testQuestionsLocal.length - 1) {
+            // Завершаем тест
+            let score = 0;
+            const userAnswers = userTestAnswers[userEmail]?.answers || {};
+            testQuestionsLocal.forEach((q, idx) => {
+                if (userAnswers[idx] === q.correct) score++;
+            });
+            
+            if (!userTestAnswers[userEmail]) {
+                userTestAnswers[userEmail] = { answers: {}, score: 0, completed: false };
+            }
+            userTestAnswers[userEmail].score = score;
+            userTestAnswers[userEmail].completed = true;
+            localStorage.setItem('userTestAnswers', JSON.stringify(userTestAnswers));
+            
+            testCompleted = true;
+            renderTest();
+        } else {
+            currentTestIndex++;
+            renderTest();
+        }
+    });
+}
+
 // ============ ОСНОВНЫЕ ПЕРЕМЕННЫЕ ============
 let userSystem, taskCompletionSystem, mistakesSystem, adminSystem, dataExportImportSystem;
 let currentTaskIndex = {13: 0, 15: 0, 18: 0};
 let currentTask = '13';
 
-// ============ ИНИЦИАЛИЗАЦИЯ ============
+// ============ ОСНОВНЫЕ ФУНКЦИИ ============
 function initNavigation() {
     const navLinks = document.querySelectorAll('.nav-link');
     
@@ -7311,6 +8124,64 @@ function checkAuthStatus() {
 }
 
 function showTask(taskNumber) {
+    if (taskNumber === 'test') {
+        currentTask = 'test';
+        document.getElementById('task-title').textContent = 'Итоговый тест';
+        document.getElementById('practice-content').innerHTML = '';
+        document.getElementById('answer-content').classList.add('hidden');
+        renderTest();
+        
+        // Обновляем активную ссылку
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.classList.remove('active');
+        });
+        document.querySelector(`[data-task="test"]`).classList.add('active');
+        
+        // Скрываем прогресс-бар для теста
+        const taskProgress = document.querySelector('.task-progress');
+        if (taskProgress) taskProgress.style.display = 'none';
+        
+        // Скрываем фильтр заданий для теста
+        const completionFilter = document.querySelector('.completion-filter');
+        if (completionFilter) completionFilter.style.display = 'none';
+        
+        // Скрываем все блоки аккордеона, кроме практики (последний блок)
+        const accordionItems = document.querySelectorAll('.accordion-item');
+        accordionItems.forEach((item, index) => {
+            if (index !== 4) { // 4 - это индекс блока "Практика" (последний)
+                item.style.display = 'none';
+            } else {
+                item.style.display = 'block';
+                item.classList.add('active');
+            }
+        });
+        
+        // СКРЫВАЕМ КНОПКИ УПРАВЛЕНИЯ ДЛЯ ТЕСТА
+        const practiceControls = document.querySelector('.practice-controls');
+        if (practiceControls) practiceControls.style.display = 'none';
+        
+        return;
+    }
+    
+    // Для обычных заданий (13, 15, 18) - показываем всё обратно
+    // Показываем прогресс-бар
+    const taskProgress = document.querySelector('.task-progress');
+    if (taskProgress) taskProgress.style.display = 'flex';
+    
+    // Показываем фильтр заданий
+    const completionFilter = document.querySelector('.completion-filter');
+    if (completionFilter) completionFilter.style.display = 'flex';
+    
+    // Показываем все блоки аккордеона
+    const accordionItems = document.querySelectorAll('.accordion-item');
+    accordionItems.forEach(item => {
+        item.style.display = 'block';
+    });
+    
+    // ПОКАЗЫВАЕМ КНОПКИ УПРАВЛЕНИЯ ДЛЯ ОБЫЧНЫХ ЗАДАНИЙ
+    const practiceControls = document.querySelector('.practice-controls');
+    if (practiceControls) practiceControls.style.display = 'flex';
+    
     const currentData = getCourseData();
     const task = currentData[taskNumber];
     if (!task) return;
@@ -7379,7 +8250,7 @@ function showTask(taskNumber) {
     if (intervalButtonContainer && intervalContainer) {
         if (taskNumber === '15') {
             intervalButtonContainer.style.display = 'block';
-            intervalContainer.style.display = 'none'; // Скрываем конструктор при переключении задания
+            intervalContainer.style.display = 'none';
         } else {
             intervalButtonContainer.style.display = 'none';
             intervalContainer.style.display = 'none';
@@ -7430,8 +8301,10 @@ function updateProgress(taskNumber) {
 }
 
 function updateCurrentTask() {
-    if (currentTask) {
+    if (currentTask && currentTask !== 'test') {
         showTask(currentTask);
+    } else if (currentTask === 'test') {
+        renderTest();
     }
     
     if (taskCompletionSystem) {
@@ -7563,13 +8436,13 @@ function updateActiveNavLink(taskNumber) {
         }
         
         intervals = [];
-        intervals.push({ id: 'int_' + Math.random(), start: -Infinity, end: points[0].value, sign: null });
+        intervals.push({ id: 'int_' + Date.now() + Math.random(), start: -Infinity, end: points[0].value, sign: null });
         
         for (let i = 0; i < points.length - 1; i++) {
-            intervals.push({ id: 'int_' + Math.random() + i, start: points[i].value, end: points[i + 1].value, sign: null });
+            intervals.push({ id: 'int_' + Date.now() + Math.random() + i, start: points[i].value, end: points[i + 1].value, sign: null });
         }
         
-        intervals.push({ id: 'int_' + Math.random() + 'last', start: points[points.length - 1].value, end: Infinity, sign: null });
+        intervals.push({ id: 'int_' + Date.now() + Math.random() + 'last', start: points[points.length - 1].value, end: Infinity, sign: null });
     }
     
     function removePoint(id) {
@@ -7819,54 +8692,47 @@ function updateActiveNavLink(taskNumber) {
 
     const ctx = canvas.getContext('2d');
 
-const func1Input = document.getElementById('coord_func1Input');
-const func2Input = document.getElementById('coord_func2Input');
-const aSlider = document.getElementById('coord_aSlider');
-const aInput = document.getElementById('coord_aInput');
-const aValueSpan = document.getElementById('coord_aValue');
-const xMinInput = document.getElementById('coord_xMin');
-const xMaxInput = document.getElementById('coord_xMax');
-const yMinInput = document.getElementById('coord_yMin');
-const yMaxInput = document.getElementById('coord_yMax');
+    const func1Input = document.getElementById('coord_func1Input');
+    const func2Input = document.getElementById('coord_func2Input');
+    const aSlider = document.getElementById('coord_aSlider');
+    const aInput = document.getElementById('coord_aInput');
+    const aValueSpan = document.getElementById('coord_aValue');
+    const xMinInput = document.getElementById('coord_xMin');
+    const xMaxInput = document.getElementById('coord_xMax');
+    const yMinInput = document.getElementById('coord_yMin');
+    const yMaxInput = document.getElementById('coord_yMax');
 
-const zoomInBtn = document.getElementById('coord_zoomInBtn');
-const zoomOutBtn = document.getElementById('coord_zoomOutBtn');
-const resetViewBtn = document.getElementById('coord_resetViewBtn');
+    const zoomInBtn = document.getElementById('coord_zoomInBtn');
+    const zoomOutBtn = document.getElementById('coord_zoomOutBtn');
+    const resetViewBtn = document.getElementById('coord_resetViewBtn');
 
-// ---- Функции для параметра a ----
-function updateAValue() {
-    const val = parseFloat(aSlider.value).toFixed(2);
-    aValueSpan.textContent = val;
-    aInput.value = val;
-}
+    // ---- Функции для параметра a (без ограничений) ----
+    function updateAValue() {
+        const val = parseFloat(aSlider.value).toFixed(2);
+        aValueSpan.textContent = val;
+        aInput.value = val;
+    }
 
-function updateAFromInput() {
-    let val = parseFloat(aInput.value);
-    // Проверяем границы
-    if (isNaN(val)) val = 4;
-    if (val < -10) val = -10;
-    if (val > 10) val = 10;
-    
-    aSlider.value = val;
-    aValueSpan.textContent = val.toFixed(2);
-}
+    function updateAFromInput() {
+        let val = parseFloat(aInput.value);
+        if (isNaN(val)) val = 4;
+        
+        // Убираем ограничения - просто устанавливаем значение
+        aSlider.value = val;
+        aValueSpan.textContent = val.toFixed(2);
+    }
 
-// События для параметра a
-aSlider.addEventListener('input', updateAValue);
-aInput.addEventListener('input', updateAFromInput);
-aInput.addEventListener('blur', function() {
-    // При потере фокуса проверяем и округляем
-    let val = parseFloat(this.value);
-    if (isNaN(val)) val = 4;
-    if (val < -10) val = -10;
-    if (val > 10) val = 10;
-    this.value = val.toFixed(2);
-    aSlider.value = val;
-    aValueSpan.textContent = val.toFixed(2);
-});
+    aSlider.addEventListener('input', updateAValue);
+    aInput.addEventListener('input', updateAFromInput);
+    aInput.addEventListener('blur', function() {
+        let val = parseFloat(this.value);
+        if (isNaN(val)) val = 4;
+        this.value = val.toFixed(2);
+        aSlider.value = val;
+        aValueSpan.textContent = val.toFixed(2);
+    });
 
-// Инициализация
-updateAValue();
+    updateAValue();
 
     // ---- Состояние ----
     let xMin = -10, xMax = 10, yMin = -10, yMax = 10;
@@ -7889,12 +8755,6 @@ updateAValue();
 
     readBoundsFromInputs();
 
-    function updateAValue() {
-        aValueSpan.textContent = parseFloat(aSlider.value).toFixed(2);
-    }
-    aSlider.addEventListener('input', updateAValue);
-    updateAValue();
-
     function toScreenX(worldX) {
         return ((worldX - xMin) / (xMax - xMin)) * canvas.width;
     }
@@ -7902,7 +8762,7 @@ updateAValue();
         return canvas.height - ((worldY - yMin) / (yMax - yMin)) * canvas.height;
     }
 
-    // ---- Отрисовка сетки и осей ----
+    // ---- Отрисовка сетки и осей (векторная) ----
     function drawGridAndAxes() {
         ctx.save();
         ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -7911,6 +8771,7 @@ updateAValue();
 
         ctx.lineWidth = 0.5;
         ctx.strokeStyle = '#d1d5db';
+        ctx.beginPath();
 
         const xRange = xMax - xMin;
         const yRange = yMax - yMin;
@@ -7920,8 +8781,7 @@ updateAValue();
         let yStep = Math.pow(10, Math.floor(Math.log10(yRange / 8)));
         if (yStep <= 0) yStep = 0.5;
 
-        // Вертикальные линии
-        ctx.beginPath();
+        // Вертикальные линии сетки
         let startX = Math.ceil(xMin / xStep) * xStep;
         for (let x = startX; x <= xMax; x += xStep) {
             if (Math.abs(x) < 1e-10) continue;
@@ -7931,10 +8791,9 @@ updateAValue();
                 ctx.lineTo(screenX, canvas.height);
             }
         }
-        ctx.strokeStyle = '#e2e8f0';
         ctx.stroke();
 
-        // Горизонтальные линии
+        // Горизонтальные линии сетки
         ctx.beginPath();
         let startY = Math.ceil(yMin / yStep) * yStep;
         for (let y = startY; y <= yMax; y += yStep) {
@@ -7945,10 +8804,9 @@ updateAValue();
                 ctx.lineTo(canvas.width, screenY);
             }
         }
-        ctx.strokeStyle = '#e2e8f0';
         ctx.stroke();
 
-        // Оси
+        // Оси (жирные линии)
         ctx.lineWidth = 2;
         ctx.strokeStyle = '#475569';
         ctx.beginPath();
@@ -7969,138 +8827,212 @@ updateAValue();
         ctx.fillStyle = '#1e293b';
         ctx.shadowColor = 'white';
         ctx.shadowBlur = 4;
+        ctx.textAlign = 'center';
+        
         for (let x = startX; x <= xMax; x += xStep) {
             if (Math.abs(x) < 0.001) continue;
             const sx = toScreenX(x);
             if (sx >= 10 && sx <= canvas.width - 30) {
-                ctx.fillText(x.toFixed(1), sx - 12, toScreenY(0) - 8);
+                ctx.fillText(x.toFixed(1), sx, toScreenY(0) - 8);
             }
         }
+        
         if (xMin <= 0 && xMax >= 0 && yMin <= 0 && yMax >= 0) {
             ctx.fillText('0', toScreenX(0) + 5, toScreenY(0) - 8);
         }
+        
+        ctx.textAlign = 'right';
         for (let y = startY; y <= yMax; y += yStep) {
             if (Math.abs(y) < 0.001) continue;
             const sy = toScreenY(y);
             if (sy >= 20 && sy <= canvas.height - 10) {
-                ctx.fillText(y.toFixed(1), toScreenX(0) + 8, sy - 4);
+                ctx.fillText(y.toFixed(1), toScreenX(0) - 5, sy + 4);
             }
         }
+        
         ctx.shadowBlur = 0;
+        ctx.textAlign = 'left';
         ctx.restore();
     }
 
-    // ---- Рисование одного графика (поддержка явных и неявных функций) ----
-    function drawSingleGraph(funcStr, color, aVal) {
+    // ---- ВЕКТОРНОЕ рисование графика (явные функции) ----
+    function drawExplicitGraph(funcStr, color, aVal) {
         if (!funcStr.trim()) return;
-
-        // Заменяем 'abs' на 'math.abs' для корректной работы
+        
         let processedFuncStr = funcStr.replace(/abs\(/g, 'math.abs(');
-
-        const isImplicit = processedFuncStr.includes('=');
-        let leftExpr, rightExpr;
-
-        if (isImplicit) {
-            const parts = processedFuncStr.split('=');
-            if (parts.length !== 2) return;
-            leftExpr = parts[0].trim();
-            rightExpr = parts[1].trim();
+        
+        let compiled;
+        try {
+            compiled = math.compile(processedFuncStr);
+        } catch(e) {
+            return;
         }
-
+        
         ctx.save();
-        ctx.lineWidth = 2.5;
-        ctx.strokeStyle = color;
         ctx.beginPath();
-
-        const steps = 400; // Для неявных функций нужно больше точек
+        ctx.strokeStyle = color;
+        ctx.lineWidth = 2.5;
+        ctx.lineJoin = 'round';
+        ctx.lineCap = 'round';
+        
         let firstPoint = true;
-
-        // Для неявных функций используем другой метод отрисовки
-        if (isImplicit) {
-            // Рисуем как набор точек (сканирование области)
-            ctx.strokeStyle = color;
-            ctx.lineWidth = 2;
+        const steps = 800;
+        
+        for (let i = 0; i <= steps; i++) {
+            const t = i / steps;
+            const worldX = xMin + t * (xMax - xMin);
             
-            // Сканируем область сеткой
-            for (let i = 0; i <= steps; i++) {
-                for (let j = 0; j <= steps; j++) {
-                    const tX = i / steps;
-                    const tY = j / steps;
-                    const worldX = xMin + tX * (xMax - xMin);
-                    const worldY = yMin + tY * (yMax - yMin);
-
-                    try {
-                        // Создаем скоуп с math, чтобы функция abs была доступна
-                        const scope = { x: worldX, y: worldY, a: aVal, math: math };
-                        const leftVal = math.evaluate(leftExpr, scope);
-                        const rightVal = math.evaluate(rightExpr, scope);
-                        
-                        if (Math.abs(leftVal - rightVal) < 0.05) { // Порог чувствительности
-                            const screenX = toScreenX(worldX);
-                            const screenY = toScreenY(worldY);
-                            
-                            ctx.fillStyle = color;
-                            ctx.beginPath();
-                            ctx.arc(screenX, screenY, 2, 0, 2 * Math.PI);
-                            ctx.fill();
-                        }
-                    } catch (e) {
-                        // Игнорируем ошибки
-                    }
-                }
-            }
-        } else {
-            // Явная функция y = f(x)
-            let compiled;
+            let worldY;
             try {
-                // Заменяем abs для явных функций тоже
-                compiled = math.compile(processedFuncStr);
-            } catch (e) {
-                return;
+                worldY = compiled.evaluate({ x: worldX, a: aVal, math: math });
+            } catch(e) {
+                firstPoint = true;
+                continue;
             }
-
-            for (let i = 0; i <= steps; i++) {
-                const t = i / steps;
-                const worldX = xMin + t * (xMax - xMin);
-
-                let worldY;
-                try {
-                    worldY = compiled.evaluate({ x: worldX, a: aVal, math: math });
-                } catch (e) {
-                    firstPoint = true;
-                    continue;
-                }
-
-                if (!isFinite(worldY) || isNaN(worldY)) {
-                    firstPoint = true;
-                    continue;
-                }
-
-                if (worldY < yMin - (yMax - yMin) * 0.5 || worldY > yMax + (yMax - yMin) * 0.5) {
-                    firstPoint = true;
-                    continue;
-                }
-
-                const screenX = toScreenX(worldX);
-                const screenY = toScreenY(worldY);
-
-                if (firstPoint) {
-                    ctx.moveTo(screenX, screenY);
-                    firstPoint = false;
-                } else {
-                    ctx.lineTo(screenX, screenY);
-                }
+            
+            if (!isFinite(worldY) || isNaN(worldY)) {
+                firstPoint = true;
+                continue;
             }
-            ctx.stroke();
+            
+            if (worldY < yMin - (yMax - yMin) * 0.5 || worldY > yMax + (yMax - yMin) * 0.5) {
+                firstPoint = true;
+                continue;
+            }
+            
+            const screenX = toScreenX(worldX);
+            const screenY = toScreenY(worldY);
+            
+            if (firstPoint) {
+                ctx.moveTo(screenX, screenY);
+                firstPoint = false;
+            } else {
+                ctx.lineTo(screenX, screenY);
+            }
         }
+        
+        ctx.stroke();
+        ctx.restore();
+    }
 
+    // ---- ВЕКТОРНОЕ рисование неявных функций ----
+    function drawImplicitGraph(funcStr, color, aVal) {
+        if (!funcStr.trim()) return;
+        
+        let processedFuncStr = funcStr.replace(/abs\(/g, 'math.abs(');
+        const parts = processedFuncStr.split('=');
+        if (parts.length !== 2) return;
+        
+        const leftExpr = parts[0].trim();
+        const rightExpr = parts[1].trim();
+        
+        ctx.save();
+        ctx.strokeStyle = color;
+        ctx.fillStyle = color;
+        ctx.lineWidth = 2;
+        
+        const gridSize = 120;
+        const cellSizeX = (xMax - xMin) / gridSize;
+        const cellSizeY = (yMax - yMin) / gridSize;
+        
+        function getValue(x, y) {
+            try {
+                const scope = { x: x, y: y, a: aVal, math: math };
+                const left = math.evaluate(leftExpr, scope);
+                const right = math.evaluate(rightExpr, scope);
+                return left - right;
+            } catch(e) {
+                return NaN;
+            }
+        }
+        
+        const values = [];
+        for (let i = 0; i <= gridSize; i++) {
+            values[i] = [];
+            const wx = xMin + i * cellSizeX;
+            for (let j = 0; j <= gridSize; j++) {
+                const wy = yMin + j * cellSizeY;
+                values[i][j] = getValue(wx, wy);
+            }
+        }
+        
+        ctx.beginPath();
+        
+        for (let i = 0; i < gridSize; i++) {
+            for (let j = 0; j < gridSize; j++) {
+                const v00 = values[i][j];
+                const v10 = values[i+1][j];
+                const v01 = values[i][j+1];
+                const v11 = values[i+1][j+1];
+                
+                if (isNaN(v00) || isNaN(v10) || isNaN(v01) || isNaN(v11)) continue;
+                
+                const x0 = xMin + i * cellSizeX;
+                const y0 = yMin + j * cellSizeY;
+                const x1 = x0 + cellSizeX;
+                const y1 = y0 + cellSizeY;
+                
+                const eps = 1e-10;
+                const crosses = [];
+                
+                if (v00 * v01 <= eps) {
+                    const t = -v00 / (v01 - v00);
+                    const y = y0 + t * cellSizeY;
+                    crosses.push({ x: x0, y: y });
+                }
+                if (v10 * v11 <= eps) {
+                    const t = -v10 / (v11 - v10);
+                    const y = y0 + t * cellSizeY;
+                    crosses.push({ x: x1, y: y });
+                }
+                if (v00 * v10 <= eps) {
+                    const t = -v00 / (v10 - v00);
+                    const x = x0 + t * cellSizeX;
+                    crosses.push({ x: x, y: y0 });
+                }
+                if (v01 * v11 <= eps) {
+                    const t = -v01 / (v11 - v01);
+                    const x = x0 + t * cellSizeX;
+                    crosses.push({ x: x, y: y1 });
+                }
+                
+                if (crosses.length >= 2) {
+                    const p1 = crosses[0];
+                    const p2 = crosses[1];
+                    const sx1 = toScreenX(p1.x);
+                    const sy1 = toScreenY(p1.y);
+                    const sx2 = toScreenX(p2.x);
+                    const sy2 = toScreenY(p2.y);
+                    
+                    ctx.moveTo(sx1, sy1);
+                    ctx.lineTo(sx2, sy2);
+                }
+            }
+        }
+        
+        ctx.stroke();
         ctx.restore();
     }
 
     function drawGraphs() {
         const aVal = parseFloat(aSlider.value);
-        drawSingleGraph(func1Input.value, '#2563eb', aVal);
-        drawSingleGraph(func2Input.value, '#dc2626', aVal);
+        const func1Str = func1Input.value;
+        const func2Str = func2Input.value;
+        
+        const isImplicit1 = func1Str.includes('=');
+        const isImplicit2 = func2Str.includes('=');
+        
+        if (isImplicit1) {
+            drawImplicitGraph(func1Str, '#2563eb', aVal);
+        } else {
+            drawExplicitGraph(func1Str, '#2563eb', aVal);
+        }
+        
+        if (isImplicit2) {
+            drawImplicitGraph(func2Str, '#dc2626', aVal);
+        } else {
+            drawExplicitGraph(func2Str, '#dc2626', aVal);
+        }
 
         ctx.save();
         ctx.font = 'bold 14px "Segoe UI"';
@@ -8117,20 +9049,9 @@ updateAValue();
         drawGraphs();
     }
 
-    // Добавляем обработчик на кнопку "Обновить график"
     if (updateGraphBtn) {
         updateGraphBtn.addEventListener('click', redraw);
     }
-
-    // Убираем автоматическое обновление при изменении полей ввода
-    // Оставляем только для кнопок масштабирования и сброса вида
-    // func1Input.addEventListener('input', redraw); // Удалено
-    // func2Input.addEventListener('input', redraw); // Удалено
-    // aSlider.addEventListener('input', redraw); // Удалено
-    // xMinInput.addEventListener('input', redraw); // Удалено
-    // xMaxInput.addEventListener('input', redraw); // Удалено
-    // yMinInput.addEventListener('input', redraw); // Удалено
-    // yMaxInput.addEventListener('input', redraw); // Удалено
 
     function zoom(factor) {
         readBoundsFromInputs();
@@ -8143,7 +9064,7 @@ updateAValue();
         yMin = centerY - newHalfY;
         yMax = centerY + newHalfY;
         updateInputsFromBounds();
-        redraw(); // Масштабирование требует немедленной перерисовки
+        redraw();
     }
 
     zoomInBtn.addEventListener('click', () => zoom(0.7));
@@ -8156,12 +9077,11 @@ updateAValue();
         updateAValue();
         func1Input.value = 'x^2 + y^2 = a';
         func2Input.value = 'abs(x) = a';
-        redraw(); // Сброс вида требует немедленной перерисовки
+        redraw();
     });
 
     canvas.addEventListener('wheel', (e) => {
         e.preventDefault();
-
         readBoundsFromInputs();
 
         const rect = canvas.getBoundingClientRect();
@@ -8177,10 +9097,9 @@ updateAValue();
         const delta = Math.sign(e.deltaY) * -0.1;
         const factor = 1 + delta;
 
-        const minRange = 1e-5;
         const newWidth = (xMax - xMin) * factor;
         const newHeight = (yMax - yMin) * factor;
-        if (newWidth < minRange || newHeight < minRange) return;
+        if (newWidth < 1e-5 || newHeight < 1e-5) return;
 
         const newXMin = mouseWorldX - (mouseWorldX - xMin) * factor;
         const newXMax = newXMin + newWidth;
@@ -8193,17 +9112,15 @@ updateAValue();
         yMax = newYMax;
 
         updateInputsFromBounds();
-        redraw(); // Масштабирование колесиком требует немедленной перерисовки
+        redraw();
     }, { passive: false });
 
     canvas.addEventListener('dblclick', () => {
         resetViewBtn.click();
     });
 
-    // Первоначальная отрисовка
     redraw();
 })();
-// ============ КОНЕЦ ЛОГИКИ КООРДИНАТНОЙ ПЛОСКОСТИ ============
 
 // ============ ЗАГРУЗКА ПРИЛОЖЕНИЯ ============
 document.addEventListener('DOMContentLoaded', function() {
@@ -8241,6 +9158,6 @@ document.addEventListener('DOMContentLoaded', function() {
     
     console.log('Приложение инициализировано!');
 });
-    </script>
+</script>
 </body>
 </html>
