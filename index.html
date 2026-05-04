@@ -2867,6 +2867,545 @@ footer p {
     background: #fff5f5;
 }
 
+
+
+
+/* ============ УЛУЧШЕНИЯ ДЛЯ ШИРОКИХ ЭКРАНОВ (ДЕСКТОП) ============ */
+
+/* Центрирование основного контента */
+@media (min-width: 1200px) {
+    body {
+        font-size: 18px;
+    }
+    
+    /* Ограничение максимальной ширины контента с центрированием */
+    .header-content,
+    nav ul,
+    .completion-filter,
+    main,
+    .accordion,
+    .data-section {
+        max-width: 1400px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    /* Увеличенные отступы */
+    .header-content {
+        padding: 0 3rem;
+    }
+    
+    main {
+        padding: 0 3rem;
+    }
+    
+    /* Навигация */
+    nav ul {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    
+    .nav-link {
+        padding: 1.2rem 2.5rem;
+        font-size: 1.05rem;
+    }
+    
+    /* Аккордеон */
+    .accordion-header {
+        padding: 1.5rem 2.5rem;
+    }
+    
+    .accordion-item.active .accordion-content {
+        padding: 2rem 2.5rem;
+    }
+    
+    /* Кнопки управления */
+    .practice-controls {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+    }
+    
+    .practice-controls .btn {
+        flex: 0 1 auto;
+        min-width: 220px;
+        padding: 1rem 1.5rem;
+        font-size: 1rem;
+    }
+    
+    /* Формулы */
+    .math-formula {
+        font-size: 20px;
+        padding: 20px;
+    }
+    
+    .formula-item {
+        font-size: 18px;
+    }
+    
+    /* Сетка формул — не растягивается */
+    .formula-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+        max-width: 100%;
+    }
+    
+    .formula-card {
+        padding: 1.8rem;
+    }
+    
+    /* Широкие экраны — три карточки в ряд */
+    @media (min-width: 1600px) {
+        .formula-grid {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+    
+    /* Решения и шаги */
+    .solution-step {
+        font-size: 16px;
+        line-height: 1.7;
+    }
+    
+    /* Тригонометрическая окружность — фиксированный размер */
+    .trig-circle-container canvas {
+        width: 600px;
+        height: 600px;
+        max-width: 100%;
+        height: auto;
+    }
+    
+    /* Координатная плоскость */
+    #coord_graphCanvas {
+        width: 100%;
+        max-width: 1000px;
+        height: auto;
+        margin: 0 auto;
+        display: block;
+    }
+    
+    /* Конструктор интервалов */
+    .interval-constructor-card {
+        max-width: 1000px;
+        margin: 20px auto;
+    }
+    
+    .interval-constructor-card .number-line {
+        height: 150px;
+    }
+    
+    .interval-constructor-card .point {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .interval-constructor-card .point-label {
+        top: -45px;
+        font-size: 14px;
+    }
+    
+    /* Блок экспорта/импорта */
+    .data-controls {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        justify-content: center;
+    }
+    
+    .data-controls .btn {
+        flex: 0 1 auto;
+        min-width: 250px;
+    }
+    
+    /* Ошибки */
+    .mistakes-container {
+        min-height: 300px;
+    }
+    
+    .mistake-item {
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    /* Рейтинг */
+    .rating-stats {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+    }
+    
+    .section-progress {
+        display: flex;
+        flex-direction: row;
+        gap: 2rem;
+        justify-content: space-between;
+    }
+    
+    .progress-section {
+        flex: 1;
+    }
+    
+    .stat-value {
+        font-size: 1.4rem;
+    }
+    
+    /* Админ-панель */
+    .admin-modal {
+        max-width: 1200px;
+        width: 95%;
+    }
+}
+
+/* Для очень широких экранов (2K, 4K) */
+@media (min-width: 1920px) {
+    body {
+        font-size: 20px;
+    }
+    
+    .header-content,
+    nav ul,
+    .completion-filter,
+    main,
+    .accordion,
+    .data-section {
+        max-width: 1600px;
+    }
+    
+    .nav-link {
+        padding: 1.5rem 3rem;
+        font-size: 1.2rem;
+    }
+    
+    .task-header h2 {
+        font-size: 2rem;
+    }
+    
+    .accordion-header h3 {
+        font-size: 1.5rem;
+    }
+    
+    .formula-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Центрирование кнопок управления графиком */
+.graph-control-panel {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.graph-control-panel .btn-update,
+.graph-control-panel .btn {
+    white-space: nowrap;
+}
+
+/* Центрирование тригонометрической окружности */
+.trig-circle-content {
+    max-width: 90vw;
+    width: fit-content;
+    margin: 3% auto;
+}
+
+.trig-circle-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Фикс для координатной плоскости — не вылезает */
+.coord_container {
+    max-width: 100%;
+    overflow-x: auto;
+}
+
+.coord_container canvas {
+    min-width: 600px;
+    width: 100%;
+    height: auto;
+}
+
+/* Центрирование модальных окон */
+.modal-content {
+    margin: 5% auto;
+    width: 90%;
+    max-width: 500px;
+}
+
+.admin-modal {
+    max-width: 1200px;
+}
+
+/* Панель Rutube */
+.rutube-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: center;
+}
+
+/* Прогресс-бар */
+.progress-bar {
+    max-width: 100%;
+}
+
+/* Список точек в конструкторе интервалов */
+.interval-constructor-card .points-list {
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+/* Хедер */
+.header-top {
+    flex-wrap: wrap;
+}
+
+/* Улучшение читаемости */
+@media (min-width: 1200px) {
+    p, li, .solution-step p {
+        line-height: 1.6;
+        margin-bottom: 0.8rem;
+    }
+    
+    h1, h2, h3, h4 {
+        letter-spacing: -0.3px;
+    }
+    
+    .theory-section {
+        padding: 1.8rem;
+    }
+}
+
+/* Адаптация для экранов ноутбука (1366x768) */
+@media (min-width: 1200px) and (max-width: 1400px) {
+    body {
+        font-size: 16px;
+    }
+    
+    .nav-link {
+        padding: 1rem 1.8rem;
+    }
+    
+    .practice-controls .btn {
+        min-width: 180px;
+        padding: 0.8rem 1rem;
+    }
+    
+    .formula-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Чтобы карточки формул не разъезжались */
+.formula-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.5rem;
+}
+
+/* Центрирование кнопок в админ-панели */
+.admin-section .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Фикс для теста */
+.test-container {
+    max-width: 100%;
+    overflow-x: auto;
+}
+
+.test-options {
+    max-width: 100%;
+}
+
+/* Фикс для шагов алгоритма */
+.algorithm-steps .step {
+    flex-direction: row;
+    align-items: flex-start;
+    text-align: left;
+}
+
+@media (max-width: 768px) {
+    .algorithm-steps .step {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .step-number {
+        margin-right: 0;
+        margin-bottom: 1rem;
+    }
+}
+
+/* Фикс для примера табов */
+.example-tabs {
+    flex-wrap: wrap;
+}
+
+/* Фикс для водяных знаков */
+.watermark-formula {
+    font-size: 48px;
+    opacity: 0.2;
+}
+
+@media (min-width: 1920px) {
+    .watermark-formula {
+        font-size: 64px;
+    }
+}
+
+/* Фикс для уведомлений */
+.notification {
+    max-width: 400px;
+    word-wrap: break-word;
+}
+
+/* ============ ИСПРАВЛЕНИЯ ДЛЯ ТЕОРИИ ============ */
+
+/* Убираем ограничение высоты аккордеона */
+.accordion-item.active .accordion-content {
+    max-height: none !important;
+    overflow-y: visible !important;
+    padding: 2rem !important;
+}
+
+/* Перенос длинных строк и формул */
+.theory-content,
+.formula-card,
+.formula-item,
+.math-formula,
+.solution-step {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;
+}
+
+/* Исправление карточек формул */
+.formula-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 2px solid #e9ecef;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    margin-bottom: 1rem;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Убираем лишнюю вложенность */
+.formula-card .formula-grid {
+    display: block !important;
+}
+
+/* Исправление сетки формул */
+.formula-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1rem;
+    margin: 1.5rem 0;
+}
+
+/* Для широких экранов */
+@media (min-width: 1200px) {
+    .formula-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1600px) {
+    .formula-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Исправление для блока .theory-content */
+.theory-content {
+    max-width: 100%;
+    overflow-x: visible;
+}
+
+/* Исправление для шагов */
+.solution-step {
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 6px;
+    overflow-x: auto;
+}
+
+/* Исправление для математических формул */
+.math-formula {
+    overflow-x: auto;
+    white-space: pre-wrap;
+    font-family: 'Cambria Math', 'Times New Roman', serif;
+    font-size: 18px;
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 8px;
+    margin: 15px 0;
+    border-left: 4px solid #3498db;
+    text-align: center;
+    font-style: italic;
+}
+
+/* Исправление для формул в карточках */
+.formula-item {
+    margin-bottom: 1rem;
+    padding: 0.8rem;
+    background: #f8f9fa;
+    border-radius: 6px;
+    border-left: 3px solid #9b59b6;
+    font-family: 'Cambria Math', serif;
+    font-size: 16px;
+    overflow-x: auto;
+    white-space: pre-wrap;
+}
+
+/* Убираем возможные проблемы с float */
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+/* Исправление для текста в карточках */
+.formula-card p,
+.formula-card ul,
+.formula-card li {
+    text-align: left;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+/* Исправление для заголовков карточек */
+.formula-card h5 {
+    color: #2c3e50;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 0.5rem;
+    display: inline-block;
+}
+
+/* Исправление для аккордеона — чтобы не было скролла внутри */
+.accordion-content {
+    overflow-y: visible !important;
+}
+
+/* Гарантия, что весь контент виден */
+.accordion-item {
+    overflow: visible !important;
+}
+
+
 </style>
 </head>
 <body>
@@ -3353,9 +3892,9 @@ footer p {
 
     <!-- Панель с Rutube после навигации -->
     <div id="rutube-panel">
-        <a href="https://rutube.ru/channel/75130349/videos/" target="_blank" class="rutube-link">
-            <i class="fas fa-video"></i> 
-            <span>Перейти на мой канал на Rutube</span>
+        <a href="https://disk.yandex.ru/d/pqwsq1fjo1msnw" target="_blank" class="rutube-link">
+            
+            <span>Перейти на яндекс диск, для скачивания демонстрационного файла</span>
         </a>
     </div>
 
@@ -3844,6 +4383,7 @@ footer p {
             </div>
         </div>
     </div>
+
 
     <script>
 // ============ ТРИГОНОМЕТРИЧИСКАЯ ОКРУЖНОСТЬ С ВЫДЕЛЕНИЕМ ДУГ ============
@@ -5277,104 +5817,289 @@ const courseData = {
         title: "Задание 18: Параметры",
         theory: `
             <div class="theory-content">
-                <div class="theory-section">
-                    <h4><i class="fas fa-bullseye"></i> Что такое задание 18?</h4>
-                   <h4>Задание 18 - это задача с параметром. Параметр (обычно a) - это не переменная, а неизвестное фиксированное число. Ваша цель - найти все значения этого числа, при которых выполняется заданное условие (например, уравнение имеет определённое число решений).</h4>
-Основных сюжетов несколько:
-<li><strong>Тип 1:</strong></li> Задачи на количество решений. Это самый частый тип. Формулировка: «Найдите все значения параметра a, при которых уравнение (или система) имеет ровно 2, 1, 0 решений и т.д.». Ключевой метод — графический: нужно преобразовать уравнение к виду a = f(x) и понять, при каких a горизонтальная прямая пересекает график y = f(x) нужное количество раз.
-<li><strong>Тип 2:</strong></li> Задачи на выполнение условия для всех x (тождественные условия). Формулировка: «Найдите a, при которых неравенство верно при всех x из отрезка или на всей прямой». Подход — метод оценки (минимума/максимума). Нужно найти такие a, при которых условие выполняется даже для самого «неудобного» x (часто это точка экстремума).
-<li><strong>Тип 3:</strong></li> Задачи на взаимное расположение корней (обычно квадратного уравнения). Формулировка: «Найдите a, при которых корни уравнения лежат в заданном промежутке, имеют разные знаки, один больше другого». Здесь работает аналитический подход через дискриминант, теорему Виета и анализ квадратичной функции.
-<li><strong>Тип 4:</strong></li> Задачи на системы, уравнения с модулем, композиции функций. Самые сложные. Требуют комбинации методов: раскрытие модуля по определению, разбиение на случаи, подстановка, а также всё тот же графический анализ.
-                </div>
+    <div class="theory-section">
+        <h4><i class="fas fa-bullseye"></i> Что такое задача с параметром?</h4>
+        <p>Задание 18 — это задача с параметром. Параметр (обычно обозначается буквой <strong>a</strong>) — это не переменная, а неизвестное фиксированное число. Ваша цель — найти все значения этого числа, при которых выполняется заданное условие.</p>
+        <p><strong>Пример формулировки:</strong> «Найдите все значения параметра a, при которых уравнение имеет ровно два различных корня».</p>
+    </div>
 
-                <div class="theory-section">
-                    <h4><i class="fas fa-book"></i> Основные формулы и свойства</h4>
-                    <div class="formula-grid">
-                        <div class="formula-card">
-                            <h4>Для квадратного уравнения ax² + bx + c = 0:</h4>
-Дискриминант: D = b² - 4ac. D > 0 — два корня; D = 0 — один корень (два совпадающих); D < 0 — нет действительных корней.<br>
-Теорема Виета: Если корни x₁ и x₂ существуют, то x₁ + x₂ = -b/a, x₁ * x₂ = c/a.<br>
-Условия на корни через Виета:<br>
-Оба корни больше числа k: D ≥ 0, (x₁ - k) + (x₂ - k) > 0, (x₁ - k)(x₂ - k) > 0.<br>
-Корни лежат по разные стороны от k: (x₁ - k)(x₂ - k) < 0.<br>
-<h4>Свойства функций для графического метода (что нужно уметь строить):</h4>
-Линейная: y = kx + b — прямая.<br>
-Квадратичная: y = ax² + bx + c — парабола. Важны вершина и направление ветвей.<br>
-Модуль: y = |x| — «галочка». График y = |f(x)| получается отражением отрицательной части графика f(x) вверх.<br>
-Корень: y = √x — «половинка параболы», лежащая на боку, начинается в точке (0,0).<br>
-Обратная пропорциональность: y = k/x — гипербола.<br>
-Области значений (запомнить!): √(f(x)) ≥ 0; |f(x)| ≥ 0; sin x ∈ [-1; 1]; cos x ∈ [-1; 1].
-                        </div>
-                    </div>
-                </div>
-
-                 <div class="theory-section">
-<h4><i class="fas fa-lightbulb"></i> Важные моменты</h4>             
-<li>ОДЗ (Область Допустимых Значений) — это первое, что выписываете. Если в уравнении есть корни, логарифмы, дроби — сразу накладывайте ограничения. Найденные значения параметра должны им удовлетворять.</li>
-<li>Особые (вырожденные) случаи. Если параметр стоит в коэффициенте при старшей степени (например, в a·x²), обязательно рассмотрите случай, когда этот коэффициент равен нулю. Уравнение меняет тип (квадратное становится линейным).</li>
-<li>Касание — это не пересечение. На графике касание горизонтальной прямой y = a к графику функции обычно соответствует значению a, равному максимуму или минимуму функции. При этом уравнение a = f(x) имеет ровно один корень (если не учитывать кратность), что часто является граничным условием в задачах «ровно два корня».</li>
-<li>Проверка граничных значений. Найдя критические значения параметра, подставьте их в исходное условие и проверьте, что происходит в этой «точной» ситуации. Включать ли это значение в ответ, зависит от условия («больше» или «больше или равно»).</li>
-<li>График — ваш главный союзник. Даже если вы решаете аналитически, сделайте эскиз. Он помогает избежать логических ошибок и увидеть все возможные случаи.</li>                  
-                </div>
+    <div class="theory-section">
+        <h4><i class="fas fa-chart-line"></i> Основные типы задач с параметром</h4>
+        <div class="formula-grid">
+            <div class="formula-card">
+                <h5><i class="fas fa-superscript"></i> Тип 1: Количество решений</h5>
+                <p>Самый распространённый тип. Формулировка: «Найдите все значения a, при которых уравнение (или система) имеет ровно 2, 1, 0 решений».</p>
+                <p><strong>Метод:</strong> графический или аналитический.</p>
             </div>
+            <div class="formula-card">
+                <h5><i class="fas fa-chart-line"></i> Тип 2: Выполнение условия для всех x</h5>
+                <p>Формулировка: «Найдите a, при которых неравенство верно при всех x из отрезка (или на всей прямой)».</p>
+                <p><strong>Метод:</strong> метод оценки (минимума/максимума).</p>
+            </div>
+            <div class="formula-card">
+                <h5><i class="fas fa-square-root-alt"></i> Тип 3: Расположение корней</h5>
+                <p>Формулировка: «Найдите a, при которых корни уравнения лежат в заданном промежутке, имеют разные знаки».</p>
+                <p><strong>Метод:</strong> теорема Виета, дискриминант, анализ квадратичной функции.</p>
+            </div>
+            <div class="formula-card">
+                <h5><i class="fas fa-project-diagram"></i> Тип 4: Системы с параметром</h5>
+                <p>Самые сложные задачи. Требуют комбинации методов: подстановка, графический анализ, раскрытие модулей.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="theory-section">
+        <h4><i class="fas fa-tools"></i> Основные методы решения</h4>
+        
+        <div class="formula-card" style="margin-bottom: 20px;">
+            <h5><i class="fas fa-chart-simple"></i> 1. Графический метод</h5>
+            <p>Графический метод — самый наглядный. Он заключается в следующем:</p>
+            <ul>
+                <li>Выразите параметр a через переменную x: a = f(x)</li>
+                <li>Постройте график функции y = f(x)</li>
+                <li>Проведите горизонтальные прямые y = a (a — это параметр)</li>
+                <li>Количество решений уравнения — это количество точек пересечения графика с прямой</li>
+            </ul>
+            <p><strong>Пример:</strong> Для уравнения |x²-4x| + 2x = a строим график правой части и смотрим, сколько раз его пересекает горизонтальная прямая.</p>
+            <div class="math-formula" style="background: #fff3e0;">
+                <strong>Важно!</strong> Графический метод особенно эффективен для уравнений с модулями и для задач на количество решений.
+            </div>
+        </div>
+
+        <div class="formula-card" style="margin-bottom: 20px;">
+            <h5><i class="fas fa-calculator"></i> 2. Аналитический метод</h5>
+            <p>Аналитический метод основан на исследовании уравнения без построения графика.</p>
+            <ul>
+                <li>Для квадратных уравнений используется дискриминант и теорема Виета</li>
+                <li>Для уравнений с модулем — раскрытие модуля по интервалам</li>
+                <li>Для систем — подстановка и анализ полученных уравнений</li>
+            </ul>
+            <div class="math-formula">
+                <strong>Квадратное уравнение:</strong> ax² + bx + c = 0<br>
+                D = b² - 4ac<br>
+                D > 0 → 2 корня<br>
+                D = 0 → 1 корень<br>
+                D < 0 → нет корней
+            </div>
+        </div>
+
+        <div class="formula-card" style="margin-bottom: 20px;">
+            <h5><i class="fas fa-chart-gantt"></i> 3. Метод интервалов для параметра</h5>
+            <p>Применяется, когда нужно найти значения параметра, при которых выражение сохраняет знак.</p>
+            <ul>
+                <li>Найдите все значения параметра, при которых выражение обращается в 0 или не определено</li>
+                <li>Отметьте эти точки на числовой оси параметров</li>
+                <li>Определите знак выражения на каждом интервале</li>
+                <li>Выберите нужные интервалы по условию задачи</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="theory-section">
+        <h4><i class="fas fa-square-root-alt"></i> Работа с квадратными уравнениями (важно для параметров)</h4>
+        
+        <div class="formula-card">
+            <h5><i class="fas fa-divide"></i> Теорема Виета</h5>
+            <p>Для квадратного уравнения ax² + bx + c = 0 с корнями x₁ и x₂:</p>
+            <div class="math-formula">x₁ + x₂ = -b/a</div>
+            <div class="math-formula">x₁·x₂ = c/a</div>
+            <p>Теорема Виета позволяет находить сумму и произведение корней, не вычисляя сами корни. Это очень полезно для задач на расположение корней.</p>
+        </div>
+
+        <div class="formula-card">
+            <h5><i class="fas fa-chart-line"></i> Условия на расположение корней квадратного трёхчлена f(x) = ax² + bx + c</h5>
+            <div class="formula-item"><strong>Оба корня больше числа k:</strong></div>
+            <div class="math-formula">D ≥ 0,  (x₁ - k) + (x₂ - k) > 0,  (x₁ - k)(x₂ - k) > 0</div>
+            <div class="formula-item"><strong>Оба корня меньше числа k:</strong></div>
+            <div class="math-formula">D ≥ 0,  (x₁ - k) + (x₂ - k) < 0,  (x₁ - k)(x₂ - k) > 0</div>
+            <div class="formula-item"><strong>Корни лежат по разные стороны от k:</strong></div>
+            <div class="math-formula">(x₁ - k)(x₂ - k) < 0</div>
+            <div class="formula-item"><strong>Корни разных знаков:</strong></div>
+            <div class="math-formula">x₁·x₂ < 0  (или c/a < 0)</div>
+            <div class="formula-item"><strong>Оба корня положительны:</strong></div>
+            <div class="math-formula">D ≥ 0,  x₁ + x₂ > 0,  x₁·x₂ > 0</div>
+            <div class="formula-item"><strong>Оба корня отрицательны:</strong></div>
+            <div class="math-formula">D ≥ 0,  x₁ + x₂ < 0,  x₁·x₂ > 0</div>
+        </div>
+    </div>
+
+    <div class="theory-section">
+        <h4><i class="fas fa-chart-line"></i> Свойства функций для графического метода</h4>
+        <div class="formula-grid">
+            <div class="formula-card">
+                <h5><i class="fas fa-chart-line"></i> Линейная функция</h5>
+                <div class="formula-item">y = kx + b — прямая</div>
+                <div class="formula-item">k — угловой коэффициент</div>
+                <div class="formula-item">b — точка пересечения с осью OY</div>
+            </div>
+            <div class="formula-card">
+                <h5><i class="fas fa-chart-simple"></i> Квадратичная функция</h5>
+                <div class="formula-item">y = ax² + bx + c — парабола</div>
+                <div class="formula-item">Вершина: x₀ = -b/(2a), y₀ = f(x₀)</div>
+                <div class="formula-item">a > 0 → ветви вверх</div>
+                <div class="formula-item">a < 0 → ветви вниз</div>
+            </div>
+            <div class="formula-card">
+                <h5><i class="fas fa-divide"></i> Модуль</h5>
+                <div class="formula-item">y = |x| — «галочка»</div>
+                <div class="formula-item">y = |f(x)| — отражение отрицательной части вверх</div>
+            </div>
+            <div class="formula-card">
+                <h5><i class="fas fa-circle"></i> Окружность</h5>
+                <div class="formula-item">(x - x₀)² + (y - y₀)² = R²</div>
+                <div class="formula-item">Центр: (x₀; y₀), радиус R</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="theory-section">
+        <h4><i class="fas fa-lightbulb"></i> Важные моменты и подсказки</h4>
+        <ul>
+            <li><strong>Всегда начинайте с ОДЗ!</strong> Это самое важное правило. Найденные значения параметра должны удовлетворять ОДЗ.</li>
+            <li><strong>Рассматривайте вырожденные случаи.</strong> Если параметр стоит в коэффициенте при старшей степени (например, в a·x²), обязательно проверьте случай a = 0 — уравнение может изменить тип.</li>
+            <li><strong>Касание — это НЕ пересечение.</strong> На графике касание горизонтальной прямой к графику функции соответствует значению a, равному экстремуму функции. При этом уравнение имеет ровно один корень (если не учитывать кратность).</li>
+            <li><strong>Проверяйте граничные значения.</strong> Найдя критические значения параметра, подставьте их в исходное условие и проверьте, что происходит в этих точках. Включать ли их в ответ, зависит от условия («больше» или «больше или равно»).</li>
+            <li><strong>Рисуйте графики!</strong> Даже если решаете аналитически, сделайте эскиз. Это помогает избежать ошибок и увидеть все возможные случаи.</li>
+            <li><strong>Не забывайте про области значений функций.</strong> Например, √(f(x)) ≥ 0 всегда, |f(x)| ≥ 0, sin x ∈ [-1; 1], cos x ∈ [-1; 1].</li>
+        </ul>
+    </div>
+
+    <div class="theory-section">
+        <h4><i class="fas fa-exclamation-triangle"></i> Типичные ошибки при решении задач с параметром</h4>
+        <ul>
+            <li><strong>Потеря ОДЗ.</strong> Самая частая ошибка. Всегда выписывайте ОДЗ перед началом решения.</li>
+            <li><strong>Игнорирование вырожденных случаев.</strong> При a, обращающем старший коэффициент в ноль, уравнение меняет тип.</li>
+            <li><strong>Неправильный учёт кратности корней.</strong> При D = 0 квадратное уравнение имеет один корень (два совпадающих). Это может влиять на количество решений.</li>
+            <li><strong>Путаница между «имеет решение» и «имеет ровно одно решение».</strong> Внимательно читайте условие!</li>
+            <li><strong>Неправильное включение/исключение граничных значений.</strong> Смотрите на знак неравенства: если ≤ — границы включаются, если < — исключаются.</li>
+        </ul>
+    </div>
+
+    <div class="theory-section" style="background: #e8f5e9;">
+        <h4><i class="fas fa-star-of-life"></i> Пример решения задачи с параметром (графическим методом)</h4>
+        <p><strong>Задача:</strong> Найдите все значения параметра a, при которых уравнение |x² - 4x| + 2x = a имеет ровно три различных корня.</p>
+        
+        <div class="solution-step">
+            <strong>Шаг 1: Выражаем a</strong>
+            <p>a = |x² - 4x| + 2x</p>
+        </div>
+
+        <div class="solution-step">
+            <strong>Шаг 2: Раскрываем модуль</strong>
+            <p>Найдём корни x² - 4x = 0 → x(x-4) = 0 → x = 0, x = 4</p>
+            <p>При x ≤ 0 или x ≥ 4: x² - 4x ≥ 0 → |x² - 4x| = x² - 4x → a = x² - 2x</p>
+            <p>При 0 ≤ x ≤ 4: x² - 4x ≤ 0 → |x² - 4x| = -x² + 4x → a = -x² + 6x</p>
+        </div>
+
+        <div class="solution-step">
+            <strong>Шаг 3: Исследуем функцию</strong>
+            <p>На интервале [0; 4]: a = -x² + 6x = -(x² - 6x) = -(x-3)² + 9 → вершина x=3, a_max=9</p>
+            <p>На интервале (-∞; 0]: a = x² - 2x = (x-1)² - 1 → при x→-∞, a→+∞; при x=0, a=0</p>
+            <p>На интервале [4; +∞): a = x² - 2x = (x-1)² - 1 → при x=4, a=8; при x→+∞, a→+∞</p>
+            <p>В точке x=0: a=0 (стык)</p>
+            <p>В точке x=4: a=8 (стык)</p>
+        </div>
+
+        <div class="solution-step">
+            <strong>Шаг 4: Анализируем количество решений</strong>
+            <p>Строим график. Горизонтальная прямая y = a пересекает график:</p>
+            <ul>
+                <li>при a < 0 → 0 решений</li>
+                <li>a = 0 → 2 решения (x=0 и x=2? Проверим: x=0 → a=0, x=2 → a=-4+12=8? Нет, при x=2 a=8. При a=0: x=0 — корень, есть ещё корни? На левой ветви x²-2x=0 → x=0 или x=2, но x=2 >0, значит на левой ветви только x=0; на правой ветви x²-2x=0 → x=0 или x=2, но x=2<4, не подходит. При a=0 также есть корни на среднем участке? -x²+6x=0 → x=0 или x=6, x=6>4 — не подходит. Итого при a=0 один корень x=0? Пересчитаем: a=0 даёт x=0 (дважды) и x=6? Нет, x=6 даёт a=36-12=24. При a=0 корни: из левой ветви x=0, из центральной x=0, из правой — нет. Итого x=0 — кратный корень? Считаем за один. Тогда 1 решение.</li>
+                <li>0 < a < 8 → 4 решения (по два на левой и правой ветвях)</li>
+                <li>a = 8 → 3 решения (x=4 — двойной? При x=4: a=8 из левой и правой ветвей совпадают, давая один корень, плюс два корня на центральной части)</li>
+                <li>8 < a < 9 → 2 решения (только на центральной части)</li>
+                <li>a = 9 → 1 решение (вершина центральной параболы)</li>
+                <li>a > 9 → 0 решений</li>
+            </ul>
+            <p>Три решения получаются при a = 8.</p>
+        </div>
+
+        <div class="solution-step" style="background: #e8f5e9;">
+            <strong>✓ Ответ: a = 8</strong>
+        </div>
+    </div>
+</div>
         `,
         algorithm: `
             <div class="algorithm-steps">
-                 <div class="step">
-                    <div class="step-number">1</div>
-                    <div class="step-content">
-                        <strong>Понимание условия</strong>
-                        <p>Внимательно прочитать условие.</p>
-                        <p>Определить, что нужно найти.</p>
-                        <p>Выделить параметр и переменную.</p>
-                    </div>
-                </div>
-                
-                <div class="step">
-                    <div class="step-number">2</div>
-                    <div class="step-content">
-                        <strong>Выбор метода решения</strong>
-                        <p>Графический метод - для уравнений с модулями, квадратных уравнений.</p>
-                        <p>Аналитический метод - когда можно выразить параметр.</p>
-                    </div>
-                </div>
-                
-                <div class="step">
-                    <div class="step-number">3</div>
-                    <div class="step-content">
-                        <strong>Решение для фиксированного параметра</strong>
-                        <p>Рассмотреть отдельные случаи.</p>
-                        <p>Найти критические значения параметра.</p>
-                    </div>
-                </div>
-                
-                <div class="step">
-                    <div class="step-number">4</div>
-                    <div class="step-content">
-                        <strong>Исследование всех случаев</strong>
-                        <p>Для каждого интервала значений параметра решить задачу.</p>
-                        <p>Проверить граничные значения.</p>
-                    </div>
-                </div>
-                
-                <div class="step">
-                    <div class="step-number">5</div>
-                    <div class="step-content">
-                        <strong>Проверка ответа</strong>
-                        <p>Подставить найденные значения параметра.</p>
-                        <p>Убедиться, что условие выполняется.</p>
-                    </div>
-                </div>
-                
-                <div class="step">
-                    <div class="step-number">6</div>
-                    <div class="step-content">
-                        <strong>Запись ответа</strong>
-                        <p>Записать все найденные значения параметра.</p>
-                        <p>Указать интервалы, если они есть.</p>
-                    </div>
-                </div>
-            </div>
+       
+    <div class="step">
+        <div class="step-number">1</div>
+        <div class="step-content">
+            <strong>Определение типа уравнения</strong>
+            <p>Посмотрите, какой вид имеет уравнение:</p>
+            <ul>
+                <li>Квадратное с параметром: ax² + bx + c = 0 (где a, b, c зависят от параметра)</li>
+                <li>Дробно-рациональное с параметром</li>
+                <li>Система уравнений с параметром</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="step">
+        <div class="step-number">2</div>
+        <div class="step-content">
+            <strong>Рассмотрение вырожденных случаев</strong>
+            <p>Если параметр стоит в коэффициенте при старшей степени, обязательно рассмотрите случай, когда этот коэффициент равен нулю.</p>
+            <p><strong>Пример:</strong> (a-1)x² + 2x + a = 0 -> рассмотрите a = 1 отдельно (уравнение становится линейным).</p>
+        </div>
+    </div>
+
+    <div class="step">
+        <div class="step-number">3</div>
+        <div class="step-content">
+            <strong>Для квадратного уравнения</strong>
+            <p>Используйте дискриминант и теорему Виета:</p>
+            <ul>
+                <li>D = b² - 4ac</li>
+                <li>Корни существуют при D ≥ 0</li>
+                <li>Два различных корня при D > 0</li>
+                <li>Один корень (два совпадающих) при D = 0</li>
+                <li>Нет корней при D < 0</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="step">
+        <div class="step-number">4</div>
+        <div class="step-content">
+            <strong>Условия на расположение корней (теорема Виета)</strong>
+            <div class="formula-item">Оба корня больше числа k: D ≥ 0, (x₁ - k) + (x₂ - k) > 0, (x₁ - k)(x₂ - k) > 0</div>
+            <div class="formula-item">Корни разных знаков: D > 0, x₁·x₂ < 0</div>
+            <div class="formula-item">Один корень положительный, другой отрицательный: x₁·x₂ < 0</div>
+            <div class="formula-item">Оба корня положительны: D ≥ 0, x₁ + x₂ > 0, x₁·x₂ > 0</div>
+            <div class="formula-item">Оба корня отрицательны: D ≥ 0, x₁ + x₂ < 0, x₁·x₂ > 0</div>
+        </div>
+    </div>
+
+    <div class="step">
+        <div class="step-number">5</div>
+        <div class="step-content">
+            <strong>Для системы уравнений с параметром</strong>
+            <p>Рассмотрите возможность подстановки одного уравнения в другое.</p>
+            <p>Используйте графический метод, если есть геометрическая интерпретация (окружности, прямые, параболы).</p>
+        </div>
+    </div>
+
+    <div class="step">
+        <div class="step-number">6</div>
+        <div class="step-content">
+            <strong>Проверка граничных значений</strong>
+            <p>Найденные критические значения параметра обязательно проверьте, подставив их в исходное условие.</p>
+            <p>Иногда при D = 0 корень может не удовлетворять дополнительным условиям (например, не входить в отрезок).</p>
+        </div>
+    </div>
+
+    <div class="step">
+        <div class="step-number">7</div>
+        <div class="step-content">
+            <strong>Запись ответа</strong>
+            <p>Запишите все найденные значения параметра. Если их несколько, объедините их в множество.</p>
+            <div class="math-formula">Пример: a ∈ (-∞; -2) ∪ {0} ∪ (3; +∞)</div>
+        </div>
+    </div>
+</div>
         `,
         examples: `
             <div class="examples-section">
@@ -5623,7 +6348,7 @@ class TaskCompletionSystem {
         const percentage = Math.round((completed / totalTasks) * 100);
         
         let level = "Новичок";
-        if (percentage >= 90) level = "Гений математики";
+        if (percentage >= 90) level = "Мастер математики";
         else if (percentage >= 80) level = "Эксперт";
         else if (percentage >= 60) level = "Продвинутый";
         else if (percentage >= 40) level = "Средний";
@@ -5925,15 +6650,16 @@ class MistakesSystem {
         });
 
         document.getElementById('mistakes-container')?.addEventListener('click', (e) => {
-            if (e.target.closest('.btn-delete-mistake')) {
-                const mistakeItem = e.target.closest('.mistake-item');
-                const index = parseInt(mistakeItem.dataset.index);
+            const deleteBtn = e.target.closest('.btn-delete-mistake');
+            if (deleteBtn) {
+                const mistakeItem = deleteBtn.closest('.mistake-item');
+                const mistakeId = mistakeItem.dataset.mistakeId;
                 const isShared = mistakeItem.dataset.shared === 'true';
-                this.deleteMistake(index, isShared);
+                if (mistakeId) {
+                    this.deleteMistakeById(mistakeId, isShared);
+                }
             }
         });
-
-        // Убираем обработчики экспорта/импорта ошибок отсюда, они теперь в общей панели
 
         document.getElementById('clear-mistakes-btn')?.addEventListener('click', () => {
             this.clearAllMistakes();
@@ -5942,27 +6668,6 @@ class MistakesSystem {
         document.getElementById('mistakes-stats-btn')?.addEventListener('click', () => {
             this.showDetailedStats();
         });
-
-        // Скрытый input для импорта ошибок (для обратной совместимости, но основная логика теперь в DataExportImportSystem)
-        // Оставим на случай, если кто-то захочет импортировать только ошибки, но кнопки для этого больше нет.
-        // Можно удалить, но оставим для безопасности.
-        const importInput = document.getElementById('import-mistakes-file');
-        if (!importInput) {
-            const newImportInput = document.createElement('input');
-            newImportInput.type = 'file';
-            newImportInput.id = 'import-mistakes-file';
-            newImportInput.accept = '.json';
-            newImportInput.style.display = 'none';
-            document.body.appendChild(newImportInput);
-
-            newImportInput.addEventListener('change', (e) => {
-                if (e.target.files[0]) {
-                    // Уведомим пользователя, что импорт только ошибок больше не поддерживается
-                    showNotification('Импорт только ошибок устарел. Используйте общий импорт данных.', 'warning');
-                    e.target.value = '';
-                }
-            });
-        }
     }
 
     addTextMistake() {
@@ -5973,7 +6678,7 @@ class MistakesSystem {
         }
 
         const mistake = {
-            id: Date.now(),
+            id: Date.now().toString() + '_' + Math.random().toString(36).substr(2, 9),
             type: 'text',
             content: '',
             caption: '',
@@ -6002,7 +6707,7 @@ class MistakesSystem {
         
         reader.onload = (e) => {
             const mistake = {
-                id: Date.now(),
+                id: Date.now().toString() + '_' + Math.random().toString(36).substr(2, 9),
                 type: 'image',
                 content: e.target.result,
                 caption: '',
@@ -6023,26 +6728,25 @@ class MistakesSystem {
         reader.readAsDataURL(file);
     }
 
-    deleteMistake(index, isShared) {
+    deleteMistakeById(mistakeId, isShared) {
         if (isShared) {
-            // Для общих ошибок - только для администраторов
             if (!adminSystem.isAdmin) {
                 showNotification('Только администратор может удалять общие ошибки', 'error');
                 return;
             }
             
-            if (confirm('Удалить эту общую ошибку?')) {
+            const index = this.sharedMistakes.findIndex(m => m.id === mistakeId);
+            if (index !== -1 && confirm('Удалить эту общую ошибку?')) {
                 this.sharedMistakes.splice(index, 1);
                 this.saveMistakes();
                 this.renderMistakes();
                 showNotification('Общая ошибка удалена', 'warning');
             }
         } else {
-            // Для пользовательских ошибок
+            const index = this.userMistakes.findIndex(m => m.id === mistakeId);
+            if (index === -1) return;
+            
             const mistake = this.userMistakes[index];
-            if (!mistake) return;
-
-            // Проверяем, принадлежит ли ошибка текущему пользователю
             if (userSystem.currentUser && mistake.userId !== userSystem.currentUser.email) {
                 showNotification('Вы можете удалять только свои ошибки!', 'error');
                 return;
@@ -6078,8 +6782,8 @@ class MistakesSystem {
         );
 
         const allMistakes = [
-            ...filteredSharedMistakes.map((m, i) => ({...m, isShared: true, originalIndex: i})),
-            ...filteredUserMistakes.map((m, i) => ({...m, isShared: false, originalIndex: i}))
+            ...filteredSharedMistakes.map(m => ({...m, isShared: true})),
+            ...filteredUserMistakes.map(m => ({...m, isShared: false}))
         ];
 
         if (allMistakes.length === 0) {
@@ -6092,7 +6796,7 @@ class MistakesSystem {
             return;
         }
         
-        allMistakes.forEach((mistake, index) => {
+        allMistakes.forEach((mistake) => {
             const template = mistake.type === 'text' 
                 ? document.getElementById('text-mistake-template')?.cloneNode(true)
                 : document.getElementById('image-mistake-template')?.cloneNode(true);
@@ -6101,7 +6805,7 @@ class MistakesSystem {
             
             template.classList.remove('template');
             template.style.display = 'block';
-            template.dataset.index = mistake.originalIndex;
+            template.dataset.mistakeId = mistake.id;
             template.dataset.shared = mistake.isShared;
             
             // Добавляем метку для общих ошибок
@@ -6120,12 +6824,13 @@ class MistakesSystem {
                 const textarea = template.querySelector('.mistake-text');
                 textarea.value = mistake.content;
                 textarea.addEventListener('input', (e) => {
-                    if (mistake.isShared) {
-                        this.sharedMistakes[mistake.originalIndex].content = e.target.value;
-                    } else {
-                        this.userMistakes[mistake.originalIndex].content = e.target.value;
+                    const originalMistake = mistake.isShared 
+                        ? this.sharedMistakes.find(m => m.id === mistake.id)
+                        : this.userMistakes.find(m => m.id === mistake.id);
+                    if (originalMistake) {
+                        originalMistake.content = e.target.value;
+                        this.saveMistakes();
                     }
-                    this.saveMistakes();
                 });
             } else {
                 const img = template.querySelector('.mistake-image');
@@ -6135,12 +6840,13 @@ class MistakesSystem {
                 const caption = template.querySelector('.mistake-caption');
                 caption.value = mistake.caption;
                 caption.addEventListener('input', (e) => {
-                    if (mistake.isShared) {
-                        this.sharedMistakes[mistake.originalIndex].caption = e.target.value;
-                    } else {
-                        this.userMistakes[mistake.originalIndex].caption = e.target.value;
+                    const originalMistake = mistake.isShared 
+                        ? this.sharedMistakes.find(m => m.id === mistake.id)
+                        : this.userMistakes.find(m => m.id === mistake.id);
+                    if (originalMistake) {
+                        originalMistake.caption = e.target.value;
+                        this.saveMistakes();
                     }
-                    this.saveMistakes();
                 });
             }
             
@@ -6154,11 +6860,6 @@ class MistakesSystem {
     renderMistakesStats(userMistakes, sharedMistakes) {
         const statsContainer = document.createElement('div');
         statsContainer.className = 'mistakes-stats';
-        
-        const userTextMistakes = userMistakes.filter(m => m.type === 'text').length;
-        const userImageMistakes = userMistakes.filter(m => m.type === 'image').length;
-        const sharedTextMistakes = sharedMistakes.filter(m => m.type === 'text').length;
-        const sharedImageMistakes = sharedMistakes.filter(m => m.type === 'image').length;
         
         statsContainer.innerHTML = `
             <div style="display: flex; justify-content: space-around; align-items: center; flex-wrap: wrap;">
@@ -6181,7 +6882,6 @@ class MistakesSystem {
         container.appendChild(statsContainer);
     }
 
-    // Метод для экспорта ошибок (теперь вызывается из DataExportImportSystem)
     getMistakesForExport() {
         return {
             userMistakes: this.userMistakes,
@@ -6189,7 +6889,6 @@ class MistakesSystem {
         };
     }
 
-    // Метод для импорта ошибок (теперь вызывается из DataExportImportSystem)
     importMistakes(importedUserMistakes, importedSharedMistakes) {
         if (importedUserMistakes && Array.isArray(importedUserMistakes)) {
             this.userMistakes = importedUserMistakes;
@@ -6201,27 +6900,28 @@ class MistakesSystem {
         this.renderMistakes();
     }
 
-    // Метод для очистки всех ошибок пользователя
     clearAllMistakes() {
         if (!userSystem.currentUser) {
             showNotification('Сначала войдите в систему!', 'warning');
             return;
         }
 
-        if (this.userMistakes.length === 0) {
-            showNotification('У вас нет ошибок для удаления', 'info');
+        const currentTaskNum = parseInt(currentTask);
+        const userMistakesInCurrentTask = this.userMistakes.filter(m => m.taskNumber === currentTaskNum);
+        
+        if (userMistakesInCurrentTask.length === 0) {
+            showNotification('У вас нет ошибок в этом задании для удаления', 'info');
             return;
         }
 
-        if (confirm(`Вы уверены, что хотите удалить все ваши ошибки (${this.userMistakes.length} шт.)?`)) {
-            this.userMistakes = [];
+        if (confirm(`Вы уверены, что хотите удалить все ваши ошибки в задании ${currentTaskNum} (${userMistakesInCurrentTask.length} шт.)?`)) {
+            this.userMistakes = this.userMistakes.filter(m => m.taskNumber !== currentTaskNum);
             this.saveMistakes();
             this.renderMistakes();
-            showNotification(`Удалено ${this.userMistakes.length} ваших ошибок`, 'success');
+            showNotification(`Удалено ${userMistakesInCurrentTask.length} ваших ошибок в задании ${currentTaskNum}`, 'success');
         }
     }
 
-    // Метод для получения статистики ошибок
     getMistakesStats() {
         const stats = {
             user: {
@@ -6253,7 +6953,6 @@ class MistakesSystem {
         return stats;
     }
 
-    // Метод для отображения расширенной статистики
     showDetailedStats() {
         const stats = this.getMistakesStats();
         
@@ -6292,20 +6991,16 @@ class MistakesSystem {
                 </div>
         `;
 
-        // Добавляем статистику по заданиям только если есть ошибки
         if (stats.user.total > 0 || stats.shared.total > 0) {
             statsHTML += `<div style="margin-top: 15px; border-top: 1px solid #ecf0f1; padding-top: 10px;">
                 <strong>Общее распределение по заданиям:</strong>`;
             
-            // Объединяем статистику по заданиям
             const allTasks = {};
             
-            // Добавляем пользовательские ошибки
             for (const [task, count] of Object.entries(stats.user.byTask)) {
                 allTasks[task] = (allTasks[task] || 0) + count;
             }
             
-            // Добавляем общие ошибки
             for (const [task, count] of Object.entries(stats.shared.byTask)) {
                 allTasks[task] = (allTasks[task] || 0) + count;
             }
@@ -6319,7 +7014,6 @@ class MistakesSystem {
 
         statsHTML += `</div>`;
 
-        // Показываем в уведомлении
         const notification = document.createElement('div');
         notification.className = 'notification info';
         notification.innerHTML = statsHTML;
@@ -9158,6 +9852,143 @@ document.addEventListener('DOMContentLoaded', function() {
     
     console.log('Приложение инициализировано!');
 });
+
+
+// Функция для открытия изображения на весь экран
+let currentFullscreenOverlay = null; // Для отслеживания текущего открытого оверлея
+
+function openFullscreenImage(imageSrc) {
+    // Закрываем предыдущий оверлей, если он есть
+    if (currentFullscreenOverlay && document.body.contains(currentFullscreenOverlay)) {
+        currentFullscreenOverlay.remove();
+        currentFullscreenOverlay = null;
+    }
+
+    // Создаем затемненный фон
+    const overlay = document.createElement('div');
+    overlay.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.9);
+        z-index: 10000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        backdrop-filter: blur(5px);
+    `;
+
+    // Создаем изображение в полный размер
+    const fullImg = document.createElement('img');
+    fullImg.src = imageSrc;
+    fullImg.style.cssText = `
+        max-width: 90%;
+        max-height: 90%;
+        object-fit: contain;
+        border-radius: 8px;
+        box-shadow: 0 0 30px rgba(0,0,0,0.5);
+        cursor: default;
+        pointer-events: auto;
+    `;
+
+    // Добавляем кнопку закрытия
+    const closeBtn = document.createElement('div');
+    closeBtn.innerHTML = '&times;';
+    closeBtn.style.cssText = `
+        position: absolute;
+        top: 20px;
+        right: 30px;
+        color: white;
+        font-size: 50px;
+        font-weight: bold;
+        cursor: pointer;
+        z-index: 10001;
+        font-family: Arial, sans-serif;
+        transition: transform 0.2s;
+        pointer-events: auto;
+    `;
+    closeBtn.onmouseover = () => closeBtn.style.transform = 'scale(1.2)';
+    closeBtn.onmouseout = () => closeBtn.style.transform = 'scale(1)';
+
+    // Функция закрытия
+    function closeOverlay(e) {
+        // Предотвращаем всплытие, чтобы не сработало несколько раз
+        if (e) {
+            e.stopPropagation();
+        }
+        if (overlay && document.body.contains(overlay)) {
+            overlay.remove();
+            currentFullscreenOverlay = null;
+        }
+        document.removeEventListener('keydown', onKeyDown);
+    }
+
+    // Обработчик клавиши Escape
+    function onKeyDown(e) {
+        if (e.key === 'Escape') {
+            closeOverlay();
+        }
+    }
+
+    // Добавляем только по одному обработчику на каждый элемент
+    overlay.addEventListener('click', function(e) {
+        // Закрываем только если клик по фону или кнопке закрытия
+        if (e.target === overlay || e.target === closeBtn) {
+            closeOverlay(e);
+        }
+    });
+
+    // Предотвращаем всплытие клика по изображению
+    fullImg.addEventListener('click', function(e) {
+        e.stopPropagation();
+    });
+
+    // Добавляем элементы на страницу
+    overlay.appendChild(fullImg);
+    overlay.appendChild(closeBtn);
+    document.body.appendChild(overlay);
+    
+    currentFullscreenOverlay = overlay;
+    
+    // Добавляем обработчик Escape
+    document.addEventListener('keydown', onKeyDown);
+}
+
+// Инициализация с флагом, чтобы не добавлять несколько обработчиков
+let mistakesImagesInitialized = false;
+
+function initMistakesImagesFullscreen() {
+    if (mistakesImagesInitialized) return; // Защита от повторной инициализации
+    
+    const mistakesContainer = document.getElementById('mistakes-container');
+    if (!mistakesContainer) return;
+
+    // Используем делегирование - только один обработчик на контейнер
+    mistakesContainer.addEventListener('click', function(e) {
+        // Проверяем, был ли клик по изображению
+        let targetImg = e.target.closest('.mistake-image');
+        if (targetImg && targetImg.src && targetImg.src !== '') {
+            e.preventDefault();
+            e.stopPropagation(); // Останавливаем всплытие
+            openFullscreenImage(targetImg.src);
+        }
+    });
+    
+    mistakesImagesInitialized = true;
+}
+
+// Запускаем инициализацию после загрузки страницы
+document.addEventListener('DOMContentLoaded', function() {
+    initMistakesImagesFullscreen();
+});
+
+
+
+
+
 </script>
 </body>
 </html>
